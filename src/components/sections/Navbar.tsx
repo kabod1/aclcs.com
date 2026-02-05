@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { NAV_ITEMS, PHONE, PHONE_LINK, EMAIL_LINK } from "@/lib/utils";
+import { NAV_ITEMS, PHONE, PHONE_LINK, EMAIL_LINK, WHATSAPP_LINK } from "@/lib/utils";
 import {
   Phone,
   Mail,
@@ -12,14 +12,35 @@ import {
   Globe,
   Calculator,
   ArrowRight,
+  MessageCircle,
 } from "lucide-react";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
   { code: "el", label: "Ελληνικά" },
   { code: "ru", label: "Русский" },
-  { code: "zh", label: "简体中文" },
   { code: "de", label: "Deutsch" },
+  { code: "zh-CN", label: "简体中文" },
+  { code: "zh-TW", label: "繁體中文" },
+  { code: "ja", label: "日本語" },
+  { code: "ko", label: "한국어" },
+  { code: "hi", label: "हिन्दी" },
+  { code: "th", label: "ไทย" },
+  { code: "vi", label: "Tiếng Việt" },
+  { code: "id", label: "Bahasa Indonesia" },
+  { code: "ms", label: "Bahasa Melayu" },
+  { code: "tl", label: "Filipino" },
+  { code: "bn", label: "বাংলা" },
+  { code: "ur", label: "اردو" },
+  { code: "ta", label: "தமிழ்" },
+  { code: "my", label: "မြန်မာ" },
+  { code: "km", label: "ខ្មែរ" },
+  { code: "lo", label: "ລາວ" },
+  { code: "ne", label: "नेपाली" },
+  { code: "si", label: "සිංහල" },
+  { code: "mn", label: "Монгол" },
+  { code: "kk", label: "Қазақша" },
+  { code: "uz", label: "O'zbek" },
 ];
 
 export default function Navbar() {
@@ -162,9 +183,9 @@ export default function Navbar() {
 
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href={PHONE_LINK} className="btn-ghost text-sm">
-              <Phone size={16} />
-              Call Us
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-ghost text-sm">
+              <MessageCircle size={16} />
+              Chat with Us
             </a>
             <Link href="/contact" className="btn-primary text-sm">
               Get Started
@@ -233,9 +254,9 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="pt-4 border-t border-navy-100 space-y-3">
-                <a href={PHONE_LINK} className="btn-outline w-full text-sm">
-                  <Phone size={16} />
-                  {PHONE}
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="btn-outline w-full text-sm">
+                  <MessageCircle size={16} />
+                  Chat with Us
                 </a>
                 <Link
                   href="/contact"

@@ -81,9 +81,9 @@ export default function Hero() {
 
                 <div className="space-y-4">
                   {[
-                    { label: "Cyprus", price: "2,900", tag: "Most Popular", color: "brand" },
-                    { label: "Europe", price: "4,500", tag: "EU Access", color: "navy" },
-                    { label: "Outside Europe", price: "3,800", tag: "International", color: "brand" },
+                    { label: "Cyprus", price: "2,000", tag: "Most Popular", color: "brand" },
+                    { label: "Europe", price: "7,000", tag: "EU Access", color: "navy" },
+                    { label: "Outside Europe", price: "12,000", tag: "International", color: "brand" },
                   ].map((pkg) => (
                     <div
                       key={pkg.label}

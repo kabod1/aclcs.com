@@ -10,8 +10,8 @@ export const PHONE_LINK = "tel:+35796186440";
 export const EMAIL = "admin@aclcs.com";
 export const EMAIL_LINK = "mailto:admin@aclcs.com";
 export const WHATSAPP_LINK = "https://wa.me/35796186440";
-export const ADDRESS = "Office 301, 3rd Floor, Jacovides Tower, 10 Griva Digeni Avenue, Nicosia 1066, Cyprus";
-export const MAPS_LINK = "https://maps.google.com/?q=Nicosia+Cyprus";
+export const ADDRESS = "Katsoni 19, Nicosia, Cyprus";
+export const MAPS_LINK = "https://maps.google.com/?q=Katsoni+19+Nicosia+Cyprus";
 
 export const SOCIAL_LINKS = {
   facebook: "https://www.facebook.com/aclcs",

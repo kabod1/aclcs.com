@@ -32,7 +32,7 @@ const SETUP_OPTIONS = [
     id: "cyprus",
     icon: Building2,
     title: "Cyprus Company Formation",
-    price: "2,900",
+    price: "2,000",
     description:
       "Incorporate a private limited company in Cyprus with full EU market access, favourable tax regime, and English common law legal system.",
     features: [
@@ -50,7 +50,7 @@ const SETUP_OPTIONS = [
     id: "europe",
     icon: Landmark,
     title: "European Structure Setup",
-    price: "4,500",
+    price: "7,000",
     description:
       "Establish your business across the EU with compliant corporate structures in leading European jurisdictions.",
     features: [
@@ -68,7 +68,7 @@ const SETUP_OPTIONS = [
     id: "outside-europe",
     icon: Globe2,
     title: "International Company Setup",
-    price: "3,800",
+    price: "12,000",
     description:
       "Set up your international company outside Europe with efficient corporate structures and global banking access.",
     features: [

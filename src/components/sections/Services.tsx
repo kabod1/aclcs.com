@@ -14,7 +14,7 @@ const SERVICES = [
   {
     icon: Building2,
     title: "Cyprus",
-    price: "2,900",
+    price: "2,000",
     description:
       "Incorporate a private limited company in Cyprus with full EU market access, favourable tax rates, and robust legal framework.",
     features: [
@@ -32,7 +32,7 @@ const SERVICES = [
   {
     icon: Landmark,
     title: "Europe",
-    price: "4,500",
+    price: "7,000",
     description:
       "Establish your company in any EU member state with full cross-border compliance, passporting rights, and pan-European operations.",
     features: [
@@ -50,7 +50,7 @@ const SERVICES = [
   {
     icon: Globe2,
     title: "Outside Europe",
-    price: "3,800",
+    price: "12,000",
     description:
       "Set up an international company structure for global operations with tax-efficient planning and asset protection.",
     features: [

@@ -8,8 +8,8 @@ const OFFERS = [
     badge: "Best Value",
     title: "Cyprus Starter",
     subtitle: "Private Limited Company",
-    price: "2,900",
-    originalPrice: "3,800",
+    price: "2,000",
+    originalPrice: "2,500",
     features: [
       "Company registration",
       "Registered office address",
@@ -23,8 +23,8 @@ const OFFERS = [
     badge: "Recommended",
     title: "Cyprus Business+",
     subtitle: "Full Incorporation Package",
-    price: "4,200",
-    originalPrice: "5,500",
+    price: "3,500",
+    originalPrice: "4,500",
     features: [
       "Company registration & apostille",
       "Registered office for 1 year",
@@ -38,8 +38,8 @@ const OFFERS = [
     badge: "International",
     title: "Global Structure",
     subtitle: "Outside Europe Package",
-    price: "3,800",
-    originalPrice: "4,900",
+    price: "12,000",
+    originalPrice: "15,000",
     features: [
       "International company formation",
       "Corporate bank account",

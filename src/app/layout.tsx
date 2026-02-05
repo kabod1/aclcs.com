@@ -17,7 +17,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ACLCS | Company Formation in Cyprus & Europe",
   description:
-    "Leading Cyprus company formation, corporate services and residency specialist. Incorporate your business in Cyprus with local, European, or international structures starting from EUR 2,900.",
+    "Leading Cyprus company formation, corporate services and residency specialist. Incorporate your business in Cyprus with local, European, or international structures starting from EUR 2,000.",
   keywords: [
     "company formation cyprus",
     "cyprus incorporation",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ACLCS | Company Formation in Cyprus & Europe",
     description:
-      "Incorporate your business in Cyprus. Local, European, or international company formation starting from EUR 2,900.",
+      "Incorporate your business in Cyprus. Local, European, or international company formation starting from EUR 2,000.",
     url: "https://www.aclcs.com",
     siteName: "ACLCS",
     locale: "en_CY",

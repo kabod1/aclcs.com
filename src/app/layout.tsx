@@ -7,6 +7,7 @@ import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import CallbackModal from "@/components/forms/CallbackModal";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
             },
           }}
         />
+        <Analytics />
       </body>
     </html>
   );

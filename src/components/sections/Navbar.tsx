@@ -45,6 +45,8 @@ export default function Navbar() {
       <div className="bg-navy-950 text-white/80 text-sm hidden lg:block">
         <div className="container-wide flex items-center justify-between py-2 px-8">
           <div className="flex items-center gap-6">
+            <span className="font-semibold text-white">aclcs.com</span>
+            <span className="text-white/20">|</span>
             <a href={PHONE_LINK} className="flex items-center gap-2 hover:text-white transition-colors">
               <Phone size={13} />
               {PHONE}

@@ -12,12 +12,12 @@ export default function CTA() {
 
       <div className="relative container-wide text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight max-w-3xl mx-auto">
-          It&apos;s Time to Get{" "}
-          <span className="text-brand-400">Decisive!</span>
+          Ready to Start Your{" "}
+          <span className="text-brand-400">Business in Cyprus?</span>
         </h2>
         <p className="mt-5 text-lg text-white/50 max-w-xl mx-auto">
-          Start your business journey today. Our experts are ready to guide you
-          through every step of your UAE company setup.
+          Take the first step today. Our experts are ready to guide you
+          through every step of your company formation in Cyprus and Europe.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Link

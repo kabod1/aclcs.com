@@ -9,74 +9,73 @@ import {
   ArrowRight,
   FileText,
   UserCheck,
-  Wallet,
   Home,
   Shield,
   RefreshCw,
   PenTool,
   XCircle,
   Snowflake,
-  Users,
   Laptop,
   Crown,
-  Palette,
+  Briefcase,
   CreditCard,
   Calculator,
   BookOpen,
   Package,
+  HeartHandshake,
 } from "lucide-react";
 import Stats from "@/components/sections/Stats";
 import CTA from "@/components/sections/CTA";
 
 const SETUP_OPTIONS = [
   {
-    id: "freezone",
+    id: "cyprus",
     icon: Building2,
-    title: "Free Zone Company Setup",
-    price: "12,900",
+    title: "Cyprus Company Formation",
+    price: "2,900",
     description:
-      "Open a company in any of the 50+ free zones in the UAE with full ownership and no income tax.",
+      "Incorporate a private limited company in Cyprus with full EU market access, favourable tax regime, and English common law legal system.",
     features: [
       "100% foreign ownership",
-      "Zero income tax",
-      "50+ free zone options",
-      "Quick incorporation (1-3 days)",
+      "12.5% corporate tax rate",
+      "EU member state access",
+      "Quick incorporation (5-7 days)",
       "Corporate bank account",
-      "Visa allocation included",
-      "Repatriation of 100% profits",
-      "No currency restrictions",
+      "Registered office address",
+      "Double tax treaty network",
+      "No restrictions on repatriation of profits",
     ],
   },
   {
-    id: "mainland",
+    id: "europe",
     icon: Landmark,
-    title: "Mainland Company Setup",
-    price: "29,999",
+    title: "European Structure Setup",
+    price: "4,500",
     description:
-      "Operate your business anywhere in the UAE and internationally without any limitations.",
+      "Establish your business across the EU with compliant corporate structures in leading European jurisdictions.",
     features: [
-      "Nationwide operations",
-      "No business scope limits",
-      "Government contracts eligible",
-      "Multiple visa allocations",
-      "Physical office options",
-      "100% ownership available",
-      "Trade with any UAE entity",
-      "No restrictions on clients",
+      "EU-wide operations",
+      "Multi-jurisdiction planning",
+      "Full regulatory compliance",
+      "Holding company structures",
+      "VAT registration included",
+      "Nominee director services",
+      "Cross-border tax planning",
+      "Annual compliance support",
     ],
   },
   {
-    id: "offshore",
+    id: "outside-europe",
     icon: Globe2,
-    title: "Offshore Company Setup",
-    price: "18,500",
+    title: "International Company Setup",
+    price: "3,800",
     description:
-      "Set up your offshore company and operate outside the UAE with a corporate bank account.",
+      "Set up your international company outside Europe with efficient corporate structures and global banking access.",
     features: [
-      "Tax-free operations",
-      "Corporate banking",
+      "Tax-efficient structures",
+      "Corporate banking access",
       "100% foreign ownership",
-      "No audit requirements",
+      "Flexible reporting requirements",
       "Asset protection",
       "Global operations",
       "Annual renewal only",
@@ -86,26 +85,26 @@ const SETUP_OPTIONS = [
 ];
 
 const LICENSE_SERVICES = [
-  { icon: RefreshCw, title: "License Renewal", desc: "Keep your business license active and compliant." },
+  { icon: RefreshCw, title: "License Renewal", desc: "Keep your Cyprus business license active and compliant." },
   { icon: PenTool, title: "License Modification", desc: "Add or change activities on your existing license." },
-  { icon: XCircle, title: "License Cancellation", desc: "Properly close your business with full compliance." },
-  { icon: Snowflake, title: "License Freezing", desc: "Temporarily suspend your license while away." },
+  { icon: XCircle, title: "License Cancellation", desc: "Properly close your business with full regulatory compliance." },
+  { icon: Snowflake, title: "License Dormancy", desc: "Temporarily suspend your license while maintaining registration." },
 ];
 
-const VISA_SERVICES = [
-  { icon: UserCheck, title: "Residence Visa", duration: "2-3 years" },
-  { icon: Users, title: "Dependent Visa", duration: "Tied to sponsor" },
-  { icon: Laptop, title: "Remote Work Visa", duration: "1 year" },
-  { icon: Crown, title: "Golden Visa", duration: "5-10 years" },
-  { icon: Palette, title: "Freelance Visa", duration: "1-3 years" },
-  { icon: Shield, title: "VIP Medical & ID", duration: "Express" },
+const RESIDENCY_SERVICES = [
+  { icon: UserCheck, title: "Permanent Residency", duration: "Indefinite" },
+  { icon: Shield, title: "Temporary Residence", duration: "1-3 years" },
+  { icon: Briefcase, title: "Work Permit", duration: "1-4 years" },
+  { icon: Laptop, title: "Digital Nomad Visa", duration: "1 year" },
+  { icon: HeartHandshake, title: "Family Reunification", duration: "Tied to sponsor" },
+  { icon: Crown, title: "Fast-Track Processing", duration: "Express" },
 ];
 
 const BANKING_SERVICES = [
-  { icon: CreditCard, title: "Bank Account Opening", desc: "Corporate and personal accounts with major UAE banks." },
-  { icon: Calculator, title: "Corporate Tax Guidance", desc: "Expert advice on UAE corporate tax requirements." },
+  { icon: CreditCard, title: "Bank Account Opening", desc: "Corporate and personal accounts with major Cyprus and EU banks." },
+  { icon: Calculator, title: "Corporate Tax Advisory", desc: "Expert advice on Cyprus and EU corporate tax requirements." },
   { icon: BookOpen, title: "Bookkeeping", desc: "Professional accounting and financial record keeping." },
-  { icon: FileText, title: "VAT Registration", desc: "Complete VAT registration and filing services." },
+  { icon: FileText, title: "VAT Registration", desc: "Complete VAT registration and filing services across the EU." },
 ];
 
 export default function ServicesPage() {
@@ -121,11 +120,11 @@ export default function ServicesPage() {
               Our Services
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Complete <span className="text-brand-400">Business Setup</span>{" "}
+              Complete <span className="text-brand-400">Corporate Setup</span>{" "}
               Services
             </h1>
             <p className="mt-6 text-lg text-white/50 leading-relaxed">
-              From company formation to visa processing, banking, and beyond.
+              From company formation to residency permits, banking, and beyond.
               Everything you need under one roof.
             </p>
           </div>
@@ -163,7 +162,7 @@ export default function ServicesPage() {
                       <div className="mt-6">
                         <span className="text-sm text-white/40">Starting from</span>
                         <p className="text-3xl font-bold text-brand-400 mt-1">
-                          AED {option.price}
+                          EUR {option.price}
                         </p>
                       </div>
                       <Link
@@ -204,7 +203,7 @@ export default function ServicesPage() {
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="section-title">License Management</h2>
             <p className="section-subtitle mx-auto mt-4">
-              Keep your business license compliant and up to date with our
+              Keep your Cyprus business license compliant and up to date with our
               management services.
             </p>
           </div>
@@ -225,26 +224,26 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Visa Services */}
-      <section className="section-padding bg-white" id="visas">
+      {/* Residency & Permits */}
+      <section className="section-padding bg-white" id="residency">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="section-title">Visa Services</h2>
+            <h2 className="section-title">Residency &amp; Permits</h2>
             <p className="section-subtitle mx-auto mt-4">
-              All visa types processed with expert guidance and dedicated support.
+              All residency and permit types processed with expert guidance and dedicated support.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {VISA_SERVICES.map((visa) => {
-              const Icon = visa.icon;
+            {RESIDENCY_SERVICES.map((item) => {
+              const Icon = item.icon;
               return (
-                <div key={visa.title} className="card p-6 flex items-center gap-4">
+                <div key={item.title} className="card p-6 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center shrink-0">
                     <Icon size={22} className="text-brand-500" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-navy-900">{visa.title}</h3>
-                    <p className="text-sm text-navy-400 mt-0.5">{visa.duration}</p>
+                    <h3 className="font-bold text-navy-900">{item.title}</h3>
+                    <p className="text-sm text-navy-400 mt-0.5">{item.duration}</p>
                   </div>
                 </div>
               );
@@ -257,9 +256,9 @@ export default function ServicesPage() {
       <section className="section-padding bg-navy-50/30" id="banking">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="section-title">Finance & Banking</h2>
+            <h2 className="section-title">Finance &amp; Banking</h2>
             <p className="section-subtitle mx-auto mt-4">
-              Complete financial services to support your business operations.
+              Complete financial services to support your business operations in Cyprus and the EU.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -289,9 +288,9 @@ export default function ServicesPage() {
               </div>
               <h2 className="text-3xl font-bold">Office Spaces</h2>
               <p className="text-white/50 mt-3 max-w-lg">
-                From flexi-desks to premium office suites, we have workspace
-                solutions for every budget and business need across Dubai and the
-                UAE.
+                From registered office addresses to premium office suites, we have workspace
+                solutions for every budget and business need across Nicosia and
+                Cyprus.
               </p>
             </div>
             <Link

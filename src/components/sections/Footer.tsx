@@ -25,14 +25,14 @@ import {
 
 const FOOTER_LINKS = {
   "Company Setup": [
-    { label: "Free Zone", href: "/services#freezone" },
-    { label: "Mainland", href: "/services#mainland" },
-    { label: "Offshore", href: "/services#offshore" },
+    { label: "Cyprus", href: "/services#cyprus" },
+    { label: "Europe", href: "/services#europe" },
+    { label: "Outside Europe", href: "/services#outside-europe" },
     { label: "Cost Calculator", href: "/#calculator" },
   ],
   Services: [
     { label: "License Management", href: "/services#licenses" },
-    { label: "Visa Services", href: "/services#visas" },
+    { label: "Residency & Permits", href: "/services#residency" },
     { label: "Banking & Finance", href: "/services#banking" },
     { label: "Office Spaces", href: "/services#offices" },
   ],
@@ -60,17 +60,17 @@ export default function Footer() {
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white font-bold text-lg">
-                D
+                A
               </div>
               <div>
                 <span className="text-xl font-bold">
-                  Decisive<span className="text-brand-400">Zone</span>
+                  ACLCS<span className="text-brand-400"> Corporate</span>
                 </span>
               </div>
             </Link>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs">
-              Leading UAE company formation, business services and residency
-              specialist. ISO 9001 certified.
+              Leading Cyprus company formation, corporate services and residency
+              specialist. Licensed and regulated.
             </p>
 
             {/* Contact info */}
@@ -100,7 +100,7 @@ export default function Footer() {
               </a>
               <div className="flex items-center gap-3 text-sm text-white/50">
                 <Clock size={14} className="shrink-0" />
-                Mon - Fri, 8:30am - 6:00pm
+                Mon - Fri, 9:00am - 6:00pm
               </div>
             </div>
 
@@ -150,7 +150,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-wide px-4 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            &copy; {new Date().getFullYear()} Decisive Zone. All rights reserved.
+            &copy; {new Date().getFullYear()} ACLCS Corporate Services. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <span className="text-xs text-white/20">We accept:</span>

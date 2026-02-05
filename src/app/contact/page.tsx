@@ -9,7 +9,6 @@ import {
   Send,
   MessageSquare,
   CheckCircle,
-  ArrowRight,
 } from "lucide-react";
 import { PHONE, PHONE_LINK, EMAIL, EMAIL_LINK, ADDRESS, MAPS_LINK, WHATSAPP_LINK } from "@/lib/utils";
 import { NATIONALITIES } from "@/lib/utils";
@@ -54,7 +53,7 @@ export default function ContactPage() {
               Let&apos;s <span className="text-brand-400">Talk Business</span>
             </h1>
             <p className="mt-5 text-lg text-white/50 leading-relaxed">
-              Ready to start your business in the UAE? Contact us for a free
+              Ready to set up your company in Cyprus? Contact us for a free
               consultation and we&apos;ll guide you through the entire process.
             </p>
           </div>
@@ -73,7 +72,7 @@ export default function ContactPage() {
                 </h2>
                 <p className="text-navy-500 mt-2">
                   Reach out through any channel and we&apos;ll get back to you
-                  within 55 seconds during business hours.
+                  promptly during business hours.
                 </p>
               </div>
 
@@ -100,7 +99,7 @@ export default function ContactPage() {
                   {
                     icon: Clock,
                     label: "Hours",
-                    value: "Monday - Friday, 8:30am - 6:00pm",
+                    value: "Monday - Friday, 9:00am - 6:00pm",
                     href: undefined,
                   },
                 ].map((item) => {
@@ -147,14 +146,14 @@ export default function ContactPage() {
               {/* Map */}
               <div className="rounded-2xl overflow-hidden border border-navy-100 h-56">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.3!2d55.26!3d25.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBay+Square+Business+Bay+Dubai!5e0!3m2!1sen!2sae!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.5!2d33.3823!3d35.1856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14de1767ca6%3A0x0!2sNicosia+Cyprus!5e0!3m2!1sen!2scy!4v1"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Office Location"
+                  title="Office Location - Nicosia, Cyprus"
                 />
               </div>
             </div>
@@ -171,7 +170,7 @@ export default function ContactPage() {
                   </h3>
                   <p className="text-navy-500 mt-3">
                     We&apos;ve received your message. Our team will get back to
-                    you within 55 seconds during business hours.
+                    you promptly during business hours.
                   </p>
                 </div>
               ) : (
@@ -226,7 +225,7 @@ export default function ContactPage() {
                           required
                           value={form.phone}
                           onChange={(e) => update("phone", e.target.value)}
-                          placeholder="+971 XX XXX XXXX"
+                          placeholder="+357 XX XXX XXX"
                           className="input-field"
                         />
                       </div>
@@ -259,12 +258,12 @@ export default function ContactPage() {
                         className="select-field"
                       >
                         <option value="">Select a service</option>
-                        <option value="freezone">Free Zone Company Setup</option>
-                        <option value="mainland">Mainland Company Setup</option>
-                        <option value="offshore">Offshore Company Setup</option>
+                        <option value="cyprus">Cyprus Company</option>
+                        <option value="europe">European Structure</option>
+                        <option value="outside-europe">International Company</option>
                         <option value="license">License Management</option>
-                        <option value="visa">Visa Services</option>
-                        <option value="banking">Banking & Finance</option>
+                        <option value="residency">Residency &amp; Permits</option>
+                        <option value="banking">Banking &amp; Finance</option>
                         <option value="other">Other</option>
                       </select>
                     </div>

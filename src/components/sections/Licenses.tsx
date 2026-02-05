@@ -2,56 +2,56 @@
 
 import Link from "next/link";
 import {
-  Bitcoin,
-  ShoppingCart,
   Globe,
+  TrendingUp,
+  Ship,
+  Laptop,
   Briefcase,
   Building,
-  Megaphone,
   ArrowRight,
   LayoutGrid,
 } from "lucide-react";
 
 const LICENSES = [
   {
-    icon: Bitcoin,
-    title: "Crypto Trading License",
-    description: "Trade cryptocurrencies legally in the UAE with a regulated license.",
+    icon: Globe,
+    title: "International Trading",
+    description: "Set up an international trading company in Cyprus with full EU market access and competitive tax rates.",
     color: "from-amber-500 to-orange-600",
     bgLight: "bg-amber-50",
   },
   {
-    icon: ShoppingCart,
-    title: "General Trading License",
-    description: "Import, export, and trade a wide range of goods across the UAE.",
+    icon: TrendingUp,
+    title: "Forex / Investment Firm",
+    description: "Establish a CySEC-regulated investment or forex firm in one of Europe's leading financial centres.",
     color: "from-blue-500 to-indigo-600",
     bgLight: "bg-blue-50",
   },
   {
-    icon: Globe,
-    title: "E-Commerce License",
-    description: "Launch your online store and sell products or services digitally.",
+    icon: Ship,
+    title: "Shipping Company",
+    description: "Leverage Cyprus's tonnage tax system and maritime heritage for your shipping operations.",
     color: "from-emerald-500 to-teal-600",
     bgLight: "bg-emerald-50",
   },
   {
-    icon: Briefcase,
-    title: "Management Consultancy",
-    description: "Provide professional consulting services to businesses in the region.",
+    icon: Laptop,
+    title: "IT & Technology",
+    description: "Launch your tech company with access to skilled talent, IP box regime, and EU-wide operations.",
     color: "from-violet-500 to-purple-600",
     bgLight: "bg-violet-50",
   },
   {
-    icon: Building,
-    title: "Real Estate License",
-    description: "Operate in the UAE real estate market with a brokerage license.",
+    icon: Briefcase,
+    title: "Management Consultancy",
+    description: "Provide professional consulting services across Europe from a Cyprus-based entity.",
     color: "from-rose-500 to-pink-600",
     bgLight: "bg-rose-50",
   },
   {
-    icon: Megaphone,
-    title: "Digital Marketing",
-    description: "Run a digital marketing agency or consultancy in the UAE.",
+    icon: Building,
+    title: "Holding Company",
+    description: "Benefit from Cyprus's extensive double tax treaty network and participation exemption for holding structures.",
     color: "from-sky-500 to-cyan-600",
     bgLight: "bg-sky-50",
   },
@@ -64,14 +64,14 @@ export default function Licenses() {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="section-label">
             <LayoutGrid size={14} />
-            Business Licenses
+            Business Types
           </span>
           <h2 className="section-title">
-            Popular <span className="text-gradient">Licenses</span>
+            Popular <span className="text-gradient">Business Types</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            Get the right license for your business activity. We handle the
-            entire licensing process from application to approval.
+            Choose the right company structure for your business activity. We handle the
+            entire incorporation process from application to registration.
           </p>
         </div>
 

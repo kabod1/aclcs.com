@@ -3,33 +3,33 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Award,
   Building,
   Globe,
   Users,
   Target,
   Heart,
   Briefcase,
+  Shield,
 } from "lucide-react";
 import Stats from "@/components/sections/Stats";
 import CTA from "@/components/sections/CTA";
 
 const LEADERSHIP = [
-  { name: "Charlie Patel", role: "Founder & Chairman", initials: "CP" },
-  { name: "Abdul Manan Shaikh", role: "Managing Partner", initials: "AM" },
-  { name: "Dyuti Parruck", role: "CEO & Partner", initials: "DP" },
-  { name: "Marvin Elabi", role: "Managing Partner - KSA", initials: "ME" },
-  { name: "Michal Sobieraj", role: "Chief Financial Officer", initials: "MS" },
-  { name: "Neha Thomas", role: "Chief Strategy Officer", initials: "NT" },
-  { name: "Richard Cooke", role: "Chief Operations Officer", initials: "RC" },
-  { name: "Mohamed Fathy", role: "Legal & Compliance", initials: "MF" },
+  { name: "Andreas Georgiou", role: "Founder & Chairman", initials: "AG" },
+  { name: "Elena Konstantinou", role: "Chief Executive Officer", initials: "EK" },
+  { name: "Marcus Weber", role: "Chief Financial Officer", initials: "MW" },
+  { name: "Sofia Papadopoulos", role: "Chief Operations Officer", initials: "SP" },
+  { name: "Nikolaos Christodoulou", role: "Head of Legal & Compliance", initials: "NC" },
+  { name: "Anna Petridou", role: "Chief Strategy Officer", initials: "AP" },
+  { name: "Lukas Hartmann", role: "Director of Corporate Services", initials: "LH" },
+  { name: "Maria Ioannou", role: "Director of Client Relations", initials: "MI" },
 ];
 
 const VALUES = [
   {
     icon: Target,
-    title: "Decisive Action",
-    description: "We help you make informed, decisive choices for your business journey in the UAE.",
+    title: "Precision & Clarity",
+    description: "We help you make informed, strategic choices for your business journey in Cyprus and the EU.",
   },
   {
     icon: Heart,
@@ -37,14 +37,14 @@ const VALUES = [
     description: "Building trusted, long-term relationships through bespoke, personalized service.",
   },
   {
-    icon: Award,
-    title: "Excellence",
-    description: "ISO 9001 certified operations ensuring consistent quality at every touchpoint.",
+    icon: Shield,
+    title: "EU Compliance",
+    description: "Full adherence to EU regulations, Cyprus company law, and international best practices.",
   },
   {
     icon: Globe,
     title: "Global Reach",
-    description: "Serving 150+ nationalities with multilingual support and international expertise.",
+    description: "Serving clients from 150+ nationalities with multilingual support and international expertise.",
   },
 ];
 
@@ -59,16 +59,17 @@ export default function AboutPage() {
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-brand-300 text-sm font-medium border border-white/10 mb-6">
               <Building size={14} />
-              About Decisive Zone
+              About ACLCS
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Your Trusted <span className="text-brand-400">Business Partner</span> in the UAE
+              Your Trusted <span className="text-brand-400">Corporate Services Partner</span> in Cyprus
             </h1>
             <p className="mt-6 text-lg text-white/50 leading-relaxed">
-              Decisive Zone is a leading UAE company formation, business services
-              and residency specialist. We provide personalized business setup
-              services to corporations and individuals establishing companies in
-              the UAE.
+              ACLCS is a leading Cyprus corporate services firm specialising in
+              company formation, EU business structures, and international
+              incorporation. We provide personalised business setup services to
+              corporations and individuals establishing companies in Cyprus and
+              across Europe.
             </p>
           </div>
         </div>
@@ -88,24 +89,24 @@ export default function AboutPage() {
                 Worldwide
               </h2>
               <p className="text-navy-500 mt-5 leading-relaxed">
-                We target individuals, startups, and small to medium-sized
-                companies with bespoke business setup advice. Our goal is to
+                We serve individuals, startups, and small to medium-sized
+                companies with bespoke corporate setup advice. Our goal is to
                 build trusted, long-term relationships while managing the entire
-                formation process.
+                formation process from start to finish.
               </p>
               <p className="text-navy-500 mt-4 leading-relaxed">
                 We assist with corporate structure selection, jurisdiction
-                guidance, and comprehensive administrative, technical, and
+                guidance, and comprehensive administrative, legal, and
                 financial aspects of business formation. Our post-establishment
-                support includes accounting, marketing, and HR services to help
-                your business grow.
+                support includes accounting, tax advisory, and HR services to help
+                your business thrive within the EU framework.
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
-                  { value: "10,000+", label: "Businesses Formed" },
-                  { value: "50+", label: "Free Zone Partners" },
-                  { value: "150+", label: "Nationalities" },
-                  { value: "12+", label: "Years Experience" },
+                  { value: "5,000+", label: "Companies Formed" },
+                  { value: "30+", label: "EU Jurisdictions" },
+                  { value: "150+", label: "Nationalities Served" },
+                  { value: "15+", label: "Years Experience" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-4 rounded-xl bg-navy-50">
                     <p className="text-2xl font-bold text-navy-900">{stat.value}</p>
@@ -191,7 +192,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-navy-500 mt-3">
                 We&apos;re always looking for talented individuals to join our
-                team. If you&apos;re passionate about helping businesses succeed,
+                team in Nicosia. If you&apos;re passionate about helping businesses succeed,
                 we&apos;d love to hear from you.
               </p>
             </div>

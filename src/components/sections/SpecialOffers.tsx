@@ -6,46 +6,46 @@ import { ArrowRight, Zap, Check, Star } from "lucide-react";
 const OFFERS = [
   {
     badge: "Best Value",
-    title: "1 Visa - Business License",
-    subtitle: "UAE Free Zone",
-    price: "12,000",
-    originalPrice: "15,000",
+    title: "Cyprus Starter",
+    subtitle: "Private Limited Company",
+    price: "2,900",
+    originalPrice: "3,800",
     features: [
-      "Business license with 1 activity",
-      "1 shareholder",
-      "100% ownership",
-      "Establishment card",
-      "Immigration card",
+      "Company registration",
+      "Registered office address",
+      "Company secretary for 1 year",
+      "Bank account introduction",
+      "Tax registration (Income & VAT)",
     ],
     featured: false,
   },
   {
     badge: "Recommended",
-    title: "1 Visa - IFZA License",
-    subtitle: "International Free Zone",
-    price: "17,900",
-    originalPrice: "22,000",
+    title: "Cyprus Business+",
+    subtitle: "Full Incorporation Package",
+    price: "4,200",
+    originalPrice: "5,500",
     features: [
-      "IFZA business license",
-      "Establishment card",
-      "1 residence visa",
-      "Medical & Emirates ID",
-      "Full incorporation support",
+      "Company registration & apostille",
+      "Registered office for 1 year",
+      "Nominee director available",
+      "Corporate bank account opening",
+      "Residency permit application",
     ],
     featured: true,
   },
   {
-    badge: "Tax Free",
-    title: "Offshore Company",
-    subtitle: "Global Operations",
-    price: "18,500",
-    originalPrice: "23,000",
+    badge: "International",
+    title: "Global Structure",
+    subtitle: "Outside Europe Package",
+    price: "3,800",
+    originalPrice: "4,900",
     features: [
-      "Tax-free operation",
+      "International company formation",
       "Corporate bank account",
       "100% foreign ownership",
-      "No audit requirement",
-      "Asset protection",
+      "Minimal reporting obligations",
+      "Asset protection structure",
     ],
     featured: false,
   },
@@ -65,8 +65,8 @@ export default function SpecialOffers() {
             Exclusive <span className="text-gradient">Packages</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            Take advantage of our limited-time offers and save on your business
-            setup in the UAE.
+            Take advantage of our limited-time offers and save on your company
+            formation in Cyprus and internationally.
           </p>
         </div>
 
@@ -96,10 +96,10 @@ export default function SpecialOffers() {
                 <p className="text-sm text-navy-400 mt-1">{offer.subtitle}</p>
                 <div className="mt-5 flex items-baseline gap-2">
                   <span className="text-3xl font-bold text-navy-900">
-                    AED {offer.price}
+                    EUR {offer.price}
                   </span>
                   <span className="text-sm text-navy-400 line-through">
-                    AED {offer.originalPrice}
+                    EUR {offer.originalPrice}
                   </span>
                 </div>
                 <ul className="mt-6 space-y-3">

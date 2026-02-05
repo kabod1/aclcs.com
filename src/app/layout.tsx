@@ -15,25 +15,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Decisive Zone | Business Setup in Dubai & UAE",
+  title: "ACLCS | Company Formation in Cyprus & Europe",
   description:
-    "Leading UAE company formation, business services and residency specialist. Setup your business in Dubai with free zone, mainland, or offshore options starting from AED 12,900.",
+    "Leading Cyprus company formation, corporate services and residency specialist. Incorporate your business in Cyprus with local, European, or international structures starting from EUR 2,900.",
   keywords: [
-    "business setup dubai",
-    "free zone company",
-    "mainland company setup",
-    "offshore company UAE",
-    "company formation dubai",
-    "UAE business license",
-    "dubai visa services",
+    "company formation cyprus",
+    "cyprus incorporation",
+    "europe company setup",
+    "international company cyprus",
+    "cyprus business license",
+    "cyprus residency permit",
+    "eu company registration",
   ],
   openGraph: {
-    title: "Decisive Zone | Business Setup in Dubai & UAE",
+    title: "ACLCS | Company Formation in Cyprus & Europe",
     description:
-      "Setup your business in Dubai. Free zone, mainland, or offshore company formation starting from AED 12,900.",
-    url: "https://www.decisivezone.ae",
-    siteName: "Decisive Zone",
-    locale: "en_AE",
+      "Incorporate your business in Cyprus. Local, European, or international company formation starting from EUR 2,900.",
+    url: "https://www.aclcs.com",
+    siteName: "ACLCS",
+    locale: "en_CY",
     type: "website",
   },
 };

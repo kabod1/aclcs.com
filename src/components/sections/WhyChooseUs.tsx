@@ -2,44 +2,44 @@
 
 import {
   Shield,
-  Clock,
-  HeadphonesIcon,
-  BadgeCheck,
-  Banknote,
+  Percent,
+  FileCheck,
+  Scale,
   Globe,
+  HeadphonesIcon,
   Sparkles,
 } from "lucide-react";
 
 const REASONS = [
   {
     icon: Shield,
-    title: "ISO 9001 Certified",
-    description: "Our processes are internationally certified ensuring consistent quality and reliability.",
+    title: "EU Member State",
+    description: "Cyprus is a full EU member, giving your company access to the entire European single market and regulatory framework.",
   },
   {
-    icon: Clock,
-    title: "Same Day Incorporation",
-    description: "Get your business license issued within 24 hours with our express processing service.",
+    icon: Percent,
+    title: "12.5% Corporate Tax",
+    description: "One of the lowest corporate tax rates in the EU, with additional incentives for IP, shipping, and holding structures.",
   },
   {
-    icon: HeadphonesIcon,
-    title: "Dedicated Account Manager",
-    description: "A single point of contact who manages your entire setup journey from start to finish.",
+    icon: FileCheck,
+    title: "Double Tax Treaties",
+    description: "Cyprus has signed over 65 double tax treaties worldwide, minimising withholding taxes on dividends, interest, and royalties.",
   },
   {
-    icon: BadgeCheck,
-    title: "Transparent Pricing",
-    description: "No hidden fees or surprise charges. Every cost is communicated upfront before you commit.",
-  },
-  {
-    icon: Banknote,
-    title: "Flexible Payment Plans",
-    description: "Split your setup costs with our easy installment options. Pay in 2, 3, or 4 payments.",
+    icon: Scale,
+    title: "English Common Law",
+    description: "The Cyprus legal system is based on English common law, providing a familiar and transparent framework for international business.",
   },
   {
     icon: Globe,
     title: "Multilingual Support",
-    description: "Our team speaks English, Arabic, Chinese, Spanish, Portuguese, and more.",
+    description: "Our team speaks English, Greek, Russian, and German to serve our diverse international client base.",
+  },
+  {
+    icon: HeadphonesIcon,
+    title: "Dedicated Account Manager",
+    description: "A single point of contact who manages your entire setup journey from start to finish with personalised attention.",
   },
 ];
 
@@ -54,10 +54,10 @@ export default function WhyChooseUs() {
             Why Choose Us
           </span>
           <h2 className="section-title">
-            The <span className="text-gradient">Decisive</span> Advantage
+            The <span className="text-gradient">ACLCS</span> Advantage
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            We&apos;ve helped over 10,000 businesses launch in the UAE. Here&apos;s
+            We&apos;ve helped over 5,000 businesses incorporate in Cyprus and across Europe. Here&apos;s
             why entrepreneurs trust us.
           </p>
         </div>

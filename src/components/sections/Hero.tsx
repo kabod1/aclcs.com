@@ -18,24 +18,24 @@ export default function Hero() {
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-brand-300 text-sm font-medium border border-white/10 mb-6 backdrop-blur-sm">
               <Shield size={14} />
-              ISO Certified Business Setup Partner
+              Licensed Corporate Services Provider
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
-              Setup Your{" "}
+              Incorporate Your{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-gradient bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">
                   Business
                 </span>
                 <span className="absolute bottom-1 left-0 right-0 h-3 bg-brand-500/20 rounded-full -z-0" />
               </span>{" "}
-              in Dubai
+              in Cyprus
             </h1>
 
             <p className="mt-6 text-lg text-white/60 leading-relaxed max-w-lg">
-              UAE company setup, residency, banking and much more. Start your
-              business journey with a trusted partner that has helped 10,000+
-              entrepreneurs go decisive.
+              Cyprus company formation, EU residency, banking and much more.
+              Start your business journey with a trusted partner that has helped
+              5,000+ entrepreneurs across Europe and beyond.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -53,15 +53,15 @@ export default function Hero() {
             <div className="mt-10 flex items-center gap-6 flex-wrap">
               <div className="flex items-center gap-2 text-white/50">
                 <Award size={16} className="text-brand-400" />
-                <span className="text-sm">10,000+ Businesses</span>
+                <span className="text-sm">5,000+ Companies Formed</span>
               </div>
               <div className="flex items-center gap-2 text-white/50">
                 <Clock size={16} className="text-brand-400" />
-                <span className="text-sm">Same Day Setup</span>
+                <span className="text-sm">Fast-Track Registration</span>
               </div>
               <div className="flex items-center gap-2 text-white/50">
                 <Shield size={16} className="text-brand-400" />
-                <span className="text-sm">ISO 9001 Certified</span>
+                <span className="text-sm">EU-Regulated</span>
               </div>
             </div>
           </div>
@@ -76,14 +76,14 @@ export default function Hero() {
               <div className="relative glass-dark rounded-3xl p-8 space-y-6">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-3 h-3 rounded-full bg-brand-500 animate-pulse-slow" />
-                  <span className="text-sm text-white/50 font-medium">Business Setup Packages</span>
+                  <span className="text-sm text-white/50 font-medium">Incorporation Packages</span>
                 </div>
 
                 <div className="space-y-4">
                   {[
-                    { label: "Free Zone", price: "12,900", tag: "Most Popular", color: "brand" },
-                    { label: "Mainland", price: "29,999", tag: "Full Access", color: "navy" },
-                    { label: "Offshore", price: "18,500", tag: "Tax Free", color: "brand" },
+                    { label: "Cyprus", price: "2,900", tag: "Most Popular", color: "brand" },
+                    { label: "Europe", price: "4,500", tag: "EU Access", color: "navy" },
+                    { label: "Outside Europe", price: "3,800", tag: "International", color: "brand" },
                   ].map((pkg) => (
                     <div
                       key={pkg.label}
@@ -95,7 +95,7 @@ export default function Hero() {
                       </div>
                       <div className="text-right">
                         <p className="text-lg font-bold text-brand-400">
-                          AED {pkg.price}
+                          EUR {pkg.price}
                         </p>
                         <p className="text-xs text-white/30">starting from</p>
                       </div>
@@ -115,8 +115,8 @@ export default function Hero() {
                     ))}
                   </div>
                   <p className="text-xs text-white/40">
-                    <span className="text-brand-400 font-semibold">340+</span> businesses
-                    setup this month
+                    <span className="text-brand-400 font-semibold">120+</span> companies
+                    formed this month
                   </p>
                 </div>
               </div>

@@ -6,16 +6,15 @@ import { NATIONALITIES } from "@/lib/utils";
 import { toast } from "sonner";
 
 const ACTIVITIES = [
-  "General Trading",
+  "International Trading",
+  "Management Consultancy",
+  "IT & Technology",
+  "Holding Company",
+  "Shipping",
+  "Forex / Investment",
   "E-Commerce",
-  "Consultancy",
   "Real Estate",
-  "IT Services",
-  "Digital Marketing",
-  "Crypto Trading",
-  "Food & Beverage",
-  "Manufacturing",
-  "Media Production",
+  "Tourism & Hospitality",
   "Education",
   "Healthcare",
   "Other",
@@ -29,7 +28,7 @@ export default function CostCalculator() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     activity: "",
-    visas: "1",
+    employees: "1",
     shareholders: "1",
     officeSpace: "no",
     name: "",
@@ -88,7 +87,7 @@ export default function CostCalculator() {
             </h2>
             <p className="section-subtitle mt-4">
               Tell us about your business requirements and we&apos;ll provide a
-              transparent, detailed cost breakdown with no hidden fees.
+              transparent, detailed cost breakdown in EUR with no hidden fees.
             </p>
 
             <div className="mt-8 space-y-6">
@@ -164,16 +163,16 @@ export default function CostCalculator() {
                 <div className="space-y-5">
                   <div>
                     <label className="block text-sm font-semibold text-navy-700 mb-2">
-                      Number of Visas Required
+                      Number of Employees
                     </label>
                     <select
-                      value={form.visas}
-                      onChange={(e) => update("visas", e.target.value)}
+                      value={form.employees}
+                      onChange={(e) => update("employees", e.target.value)}
                       className="select-field"
                     >
                       {[1, 2, 3, 4, 5, 6, "7+"].map((n) => (
                         <option key={n} value={n}>
-                          {n} {Number(n) === 1 ? "Visa" : "Visas"}
+                          {n} {Number(n) === 1 ? "Employee" : "Employees"}
                         </option>
                       ))}
                     </select>
@@ -199,7 +198,7 @@ export default function CostCalculator() {
                       Do you need office space?
                     </label>
                     <div className="flex gap-3">
-                      {["yes", "no", "flexi-desk"].map((opt) => (
+                      {["yes", "no", "registered-address"].map((opt) => (
                         <button
                           key={opt}
                           type="button"
@@ -210,7 +209,7 @@ export default function CostCalculator() {
                               : "border-navy-100 text-navy-600 hover:border-navy-200"
                           }`}
                         >
-                          {opt === "flexi-desk" ? "Flexi Desk" : opt === "yes" ? "Yes" : "No"}
+                          {opt === "registered-address" ? "Registered Address" : opt === "yes" ? "Yes" : "No"}
                         </button>
                       ))}
                     </div>
@@ -255,7 +254,7 @@ export default function CostCalculator() {
                       type="tel"
                       value={form.phone}
                       onChange={(e) => update("phone", e.target.value)}
-                      placeholder="+971 XX XXX XXXX"
+                      placeholder="+357 XX XXX XXX"
                       className="input-field"
                       required
                     />

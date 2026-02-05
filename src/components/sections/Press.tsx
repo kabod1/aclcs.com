@@ -3,12 +3,12 @@
 import { Newspaper } from "lucide-react";
 
 const PRESS = [
-  { name: "Arabian Business", initials: "AB" },
-  { name: "Entrepreneur", initials: "EN" },
-  { name: "Gulf Today", initials: "GT" },
-  { name: "Khaleej Times", initials: "KT" },
-  { name: "MSN", initials: "MS" },
-  { name: "Gulf News", initials: "GN" },
+  { name: "Financial Mirror", initials: "FM" },
+  { name: "Cyprus Mail", initials: "CM" },
+  { name: "In-Cyprus", initials: "IC" },
+  { name: "Cyprus Business", initials: "CB" },
+  { name: "EU Business News", initials: "EU" },
+  { name: "Forbes Europe", initials: "FE" },
 ];
 
 export default function Press() {

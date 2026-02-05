@@ -7,7 +7,6 @@ import {
   Building2,
   CreditCard,
   PartyPopper,
-  ArrowDown,
 } from "lucide-react";
 
 const STEPS = [
@@ -29,17 +28,17 @@ const STEPS = [
   {
     icon: Building2,
     title: "Company Registration",
-    description: "Your company is officially registered and trade license issued.",
+    description: "Your company is officially registered and your trade certificate issued.",
   },
   {
     icon: CreditCard,
-    title: "Banking & Visa",
-    description: "We open your corporate bank account and process all visa applications.",
+    title: "Banking & Residency",
+    description: "We open your corporate bank account and process all residency permit applications.",
   },
   {
     icon: PartyPopper,
     title: "You're in Business",
-    description: "Start operating your business in the UAE. We continue supporting you post-setup.",
+    description: "Start operating your business in Cyprus. We continue supporting you post-setup.",
   },
 ];
 
@@ -57,7 +56,7 @@ export default function Process() {
           </h2>
           <p className="section-subtitle mx-auto mt-4">
             From initial consultation to business operation, here&apos;s how we
-            get your company up and running in the UAE.
+            get your company up and running in Cyprus.
           </p>
         </div>
 

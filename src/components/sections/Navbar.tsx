@@ -16,10 +16,10 @@ import {
 
 const LANGUAGES = [
   { code: "en", label: "English" },
-  { code: "ar", label: "العربية" },
+  { code: "el", label: "Ελληνικά" },
+  { code: "ru", label: "Русский" },
   { code: "zh", label: "简体中文" },
-  { code: "es", label: "Español" },
-  { code: "pt", label: "Português" },
+  { code: "de", label: "Deutsch" },
 ];
 
 export default function Navbar() {
@@ -51,7 +51,7 @@ export default function Navbar() {
             </a>
             <a href={EMAIL_LINK} className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail size={13} />
-              info@decisivezone.ae
+              admin@aclcs.com
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -101,17 +101,14 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-500/20">
-              D
+              A
             </div>
             <div className="leading-tight">
               <span className="text-xl font-bold text-navy-900 tracking-tight">
-                Decisive
-              </span>
-              <span className="text-xl font-bold text-brand-500 tracking-tight">
-                Zone
+                ACLCS
               </span>
               <p className="text-[10px] text-navy-400 font-medium -mt-0.5 tracking-wider uppercase">
-                Business Setup
+                Corporate Services
               </p>
             </div>
           </Link>

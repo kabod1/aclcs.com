@@ -13,57 +13,57 @@ import {
 const SERVICES = [
   {
     icon: Building2,
-    title: "Free Zone",
-    price: "12,900",
+    title: "Cyprus",
+    price: "2,900",
     description:
-      "Open a company in any of the 50+ free zones in the UAE with full ownership and no income tax.",
+      "Incorporate a private limited company in Cyprus with full EU market access, favourable tax rates, and robust legal framework.",
     features: [
+      "12.5% corporate tax rate",
+      "Full EU member state access",
       "100% foreign ownership",
-      "Zero income tax",
-      "50+ free zone options",
-      "Quick incorporation",
+      "No restrictions on directors",
       "Corporate bank account",
-      "Visa allocation included",
+      "Residency permit eligibility",
     ],
     tag: "Most Popular",
     color: "brand",
-    href: "/services#freezone",
+    href: "/services#cyprus",
   },
   {
     icon: Landmark,
-    title: "Mainland",
-    price: "29,999",
+    title: "Europe",
+    price: "4,500",
     description:
-      "Operate your business anywhere in the UAE and internationally without any limitations.",
+      "Establish your company in any EU member state with full cross-border compliance, passporting rights, and pan-European operations.",
     features: [
-      "Nationwide operations",
-      "No business scope limits",
-      "Government contracts eligible",
-      "Multiple visa allocations",
-      "Physical office options",
-      "100% ownership available",
+      "EU-wide market access",
+      "Cross-border passporting",
+      "VAT registration support",
+      "Multi-jurisdiction compliance",
+      "Nominee director options",
+      "European banking solutions",
     ],
-    tag: "Full Access",
+    tag: "EU Access",
     color: "navy",
-    href: "/services#mainland",
+    href: "/services#europe",
   },
   {
     icon: Globe2,
-    title: "Offshore",
-    price: "18,500",
+    title: "Outside Europe",
+    price: "3,800",
     description:
-      "Set up your offshore company and operate outside the UAE with a corporate bank account.",
+      "Set up an international company structure for global operations with tax-efficient planning and asset protection.",
     features: [
-      "Tax-free operations",
-      "Corporate banking",
+      "Tax-efficient structures",
+      "International banking",
       "100% foreign ownership",
-      "No audit requirements",
+      "Minimal reporting requirements",
       "Asset protection",
-      "Global operations",
+      "Global operations capability",
     ],
-    tag: "Tax Free",
+    tag: "International",
     color: "brand",
-    href: "/services#offshore",
+    href: "/services#outside-europe",
   },
 ];
 
@@ -74,13 +74,13 @@ export default function Services() {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="section-label">
             <Sparkles size={14} />
-            Company Setup
+            Company Formation
           </span>
           <h2 className="section-title">
-            Choose Your <span className="text-gradient">Business Structure</span>
+            Choose Your <span className="text-gradient">Jurisdiction</span>
           </h2>
           <p className="section-subtitle mx-auto mt-4">
-            Start your business in Dubai with the setup option that best fits your
+            Incorporate your business with the structure that best fits your
             goals. All packages include expert guidance and end-to-end support.
           </p>
         </div>
@@ -137,7 +137,7 @@ export default function Services() {
                         isPopular ? "text-brand-400" : "text-navy-900"
                       }`}
                     >
-                      AED {service.price}
+                      EUR {service.price}
                     </span>
                   </div>
 

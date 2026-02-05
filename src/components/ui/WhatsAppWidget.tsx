@@ -13,7 +13,7 @@ export default function WhatsAppWidget() {
         <div className="bg-white rounded-2xl shadow-2xl border border-navy-100 w-80 overflow-hidden animate-scale-in origin-bottom-right">
           <div className="bg-[#075e54] px-5 py-4 flex items-center justify-between">
             <div>
-              <p className="text-white font-semibold text-sm">Decisive Zone</p>
+              <p className="text-white font-semibold text-sm">ACLCS Corporate Services</p>
               <p className="text-green-200 text-xs">Typically replies within minutes</p>
             </div>
             <button
@@ -26,7 +26,7 @@ export default function WhatsAppWidget() {
           <div className="p-5 bg-[#ece5dd]">
             <div className="bg-white rounded-xl rounded-tl-none p-3 shadow-sm max-w-[85%]">
               <p className="text-sm text-gray-800">
-                Hello! 👋 How can we help you with your business setup in Dubai?
+                Hello! 👋 How can we help you with company formation in Cyprus?
               </p>
               <p className="text-[10px] text-gray-400 mt-1 text-right">Just now</p>
             </div>

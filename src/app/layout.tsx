@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/ui/ScrollToTop";
 import CallbackModal from "@/components/forms/CallbackModal";
 import GoogleTranslate from "@/components/ui/GoogleTranslate";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
             },
           }}
         />
+        <Analytics />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { NAV_ITEMS, PHONE, PHONE_LINK, EMAIL_LINK, WHATSAPP_LINK } from "@/lib/utils";
+import { changeLanguage, getCurrentLanguage } from "@/components/ui/GoogleTranslate";
 import {
   Phone,
   Mail,
@@ -48,6 +49,11 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState("en");
+
+  useEffect(() => {
+    setCurrentLang(getCurrentLanguage());
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -91,16 +97,24 @@ export default function Navbar() {
                 className="flex items-center gap-1.5 hover:text-white transition-colors"
               >
                 <Globe size={13} />
-                EN
+                {currentLang.toUpperCase().slice(0, 2)}
                 <ChevronDown size={12} />
               </button>
               {langOpen && (
-                <div className="absolute right-0 top-full mt-2 w-36 bg-white rounded-xl shadow-xl border border-navy-100 py-1 z-50">
+                <div className="absolute right-0 top-full mt-2 w-44 bg-white rounded-xl shadow-xl border border-navy-100 py-1 z-50 max-h-72 overflow-y-auto">
                   {LANGUAGES.map((lang) => (
                     <button
                       key={lang.code}
-                      className="w-full text-left px-4 py-2 text-sm text-navy-700 hover:bg-navy-50 transition-colors"
-                      onClick={() => setLangOpen(false)}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                        currentLang === lang.code
+                          ? "bg-brand-50 text-brand-600 font-medium"
+                          : "text-navy-700 hover:bg-navy-50"
+                      }`}
+                      onClick={() => {
+                        changeLanguage(lang.code);
+                        setCurrentLang(lang.code);
+                        setLangOpen(false);
+                      }}
                     >
                       {lang.label}
                     </button>

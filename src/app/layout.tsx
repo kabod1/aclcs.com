@@ -7,6 +7,7 @@ import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import CallbackModal from "@/components/forms/CallbackModal";
 import GoogleTranslate from "@/components/ui/GoogleTranslate";
+import CookieBanner from "@/components/ui/CookieBanner";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -54,6 +55,7 @@ export default function RootLayout({
         <ScrollToTop />
         <CallbackModal />
         <GoogleTranslate />
+        <CookieBanner />
         <Toaster
           position="top-right"
           richColors

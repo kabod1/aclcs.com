@@ -150,7 +150,9 @@ export default function Testimonials() {
         {/* Reviews CTA */}
         <div className="text-center mt-10">
           <a
-            href="#"
+            href="https://wa.me/35796186440?text=Hi%2C%20I%20would%20like%20to%20leave%20a%20review%20for%20ACLCS%20Corporate%20Services."
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm font-semibold text-brand-500 hover:text-brand-600 transition-colors"
           >
             <Star size={16} className="fill-brand-500" />

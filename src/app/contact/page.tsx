@@ -304,12 +304,12 @@ export default function ContactPage() {
 
                     <p className="text-center text-xs text-navy-400">
                       By submitting this form, you agree to our{" "}
-                      <a href="#" className="text-brand-500 hover:underline">
+                      <a href="/privacy-policy" className="text-brand-500 hover:underline">
                         Privacy Policy
                       </a>{" "}
                       and{" "}
-                      <a href="#" className="text-brand-500 hover:underline">
-                        Terms of Service
+                      <a href="/terms" className="text-brand-500 hover:underline">
+                        Terms &amp; Conditions
                       </a>
                       .
                     </p>

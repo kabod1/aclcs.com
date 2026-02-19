@@ -39,14 +39,14 @@ const FOOTER_LINKS = {
   Company: [
     { label: "About Us", href: "/about" },
     { label: "Careers", href: "/about#careers" },
-    { label: "Blog", href: "#" },
     { label: "Contact", href: "/contact" },
+    { label: "Referral Program", href: "/#referral" },
   ],
   Legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms & Conditions", href: "#" },
-    { label: "Sitemap", href: "#" },
-    { label: "Referral Program", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Cookie Policy", href: "/privacy-policy#9-cookies" },
+    { label: "GDPR Rights", href: "/privacy-policy#7-your-gdpr-rights" },
   ],
 };
 

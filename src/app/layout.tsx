@@ -1,13 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/sections/Navbar";
-import Footer from "@/components/sections/Footer";
-import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
-import ScrollToTop from "@/components/ui/ScrollToTop";
-import CallbackModal from "@/components/forms/CallbackModal";
-import GoogleTranslate from "@/components/ui/GoogleTranslate";
-import CookieBanner from "@/components/ui/CookieBanner";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -48,14 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppWidget />
-        <ScrollToTop />
-        <CallbackModal />
-        <GoogleTranslate />
-        <CookieBanner />
+        {children}
         <Toaster
           position="top-right"
           richColors

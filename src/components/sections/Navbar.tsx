@@ -201,6 +201,9 @@ export default function Navbar() {
               <MessageCircle size={16} />
               Chat with Us
             </a>
+            <Link href="/login" className="text-sm font-medium text-navy-600 hover:text-brand-600 transition-colors px-3 py-2">
+              Client Portal
+            </Link>
             <Link href="/contact" className="btn-primary text-sm">
               Get Started
               <ArrowRight size={16} />
@@ -272,6 +275,13 @@ export default function Navbar() {
                   <MessageCircle size={16} />
                   Chat with Us
                 </a>
+                <Link
+                  href="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-center w-full px-4 py-3 border border-navy-200 text-navy-700 rounded-xl text-sm font-medium hover:bg-navy-50 transition-colors"
+                >
+                  Client Portal
+                </Link>
                 <Link
                   href="/contact"
                   onClick={() => setMobileOpen(false)}

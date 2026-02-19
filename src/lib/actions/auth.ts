@@ -57,7 +57,7 @@ export async function signUp(formData: FormData) {
     return { error: error.message };
   }
 
-  redirect("/pending-approval");
+  return { redirectTo: "/pending-approval" };
 }
 
 export async function signOut() {

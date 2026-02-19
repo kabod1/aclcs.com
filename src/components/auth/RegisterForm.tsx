@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Mail, Lock, User, Phone, Eye, EyeOff, UserPlus } from "lucide-react";
 import { signUp } from "@/lib/actions/auth";
 import { NATIONALITIES } from "@/lib/utils";
 
 export default function RegisterForm() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -28,9 +30,16 @@ export default function RegisterForm() {
     }
 
     setLoading(true);
-    const result = await signUp(formData);
-    if (result?.error) {
-      setError(result.error);
+    try {
+      const result = await signUp(formData);
+      if (result?.error) {
+        setError(result.error);
+        setLoading(false);
+      } else if (result?.redirectTo) {
+        router.push(result.redirectTo);
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
       setLoading(false);
     }
   }

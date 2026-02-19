@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -10,6 +10,10 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  themeColor: "#0f172a",
+};
 
 export const metadata: Metadata = {
   title: "ACLCS | Company Formation in Cyprus & Europe",
@@ -24,7 +28,6 @@ export const metadata: Metadata = {
     "cyprus residency permit",
     "eu company registration",
   ],
-  themeColor: "#0f172a",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

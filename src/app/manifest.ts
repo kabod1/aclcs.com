@@ -23,7 +23,13 @@ export default function manifest(): MetadataRoute.Manifest {
         src: "/api/pwa-icon/512",
         sizes: "512x512",
         type: "image/png",
-        purpose: "any maskable",
+        purpose: "any",
+      },
+      {
+        src: "/api/pwa-icon/512",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
       },
     ],
   };

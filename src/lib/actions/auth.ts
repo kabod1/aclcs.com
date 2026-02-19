@@ -32,32 +32,36 @@ export async function signIn(formData: FormData) {
 }
 
 export async function signUp(formData: FormData) {
-  const supabase = await createClient();
+  try {
+    const supabase = await createClient();
 
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
-  const fullName = formData.get("full_name") as string;
-  const phone = formData.get("phone") as string;
-  const nationality = formData.get("nationality") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const fullName = formData.get("full_name") as string;
+    const phone = formData.get("phone") as string;
+    const nationality = formData.get("nationality") as string;
 
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: {
-        full_name: fullName,
-        phone,
-        nationality,
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          full_name: fullName,
+          phone,
+          nationality,
+        },
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/confirm`,
       },
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/confirm`,
-    },
-  });
+    });
 
-  if (error) {
-    return { error: error.message };
+    if (error) {
+      return { error: error.message };
+    }
+
+    return { redirectTo: "/pending-approval" };
+  } catch (e) {
+    return { error: e instanceof Error ? e.message : "Registration failed. Please try again." };
   }
-
-  return { redirectTo: "/pending-approval" };
 }
 
 export async function signOut() {

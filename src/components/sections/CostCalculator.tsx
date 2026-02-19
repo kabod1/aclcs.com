@@ -31,6 +31,11 @@ export default function CostCalculator() {
     employees: "1",
     shareholders: "1",
     officeSpace: "no",
+    nomineeDirector: "no",
+    secretary: "no",
+    nomineeShareholder: "no",
+    taxCertificate: "no",
+    vat: "no",
     name: "",
     email: "",
     phone: "",
@@ -210,6 +215,126 @@ export default function CostCalculator() {
                           }`}
                         >
                           {opt === "registered-address" ? "Registered Address" : opt === "yes" ? "Yes" : "No"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Nominee Director */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy-700 mb-1">
+                      Nominee Director
+                    </label>
+                    <p className="text-xs text-navy-400 mb-2">A local Cyprus director to satisfy residency requirements</p>
+                    <div className="flex gap-3">
+                      {["yes", "no"].map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => update("nomineeDirector", opt)}
+                          className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium border transition-all capitalize ${
+                            form.nomineeDirector === opt
+                              ? "border-brand-500 bg-brand-50 text-brand-600"
+                              : "border-navy-100 text-navy-600 hover:border-navy-200"
+                          }`}
+                        >
+                          {opt === "yes" ? "Yes" : "No"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Company Secretary */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy-700 mb-1">
+                      Company Secretary
+                    </label>
+                    <p className="text-xs text-navy-400 mb-2">Mandatory under Cyprus Companies Law for all registered companies</p>
+                    <div className="flex gap-3">
+                      {["yes", "no"].map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => update("secretary", opt)}
+                          className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium border transition-all capitalize ${
+                            form.secretary === opt
+                              ? "border-brand-500 bg-brand-50 text-brand-600"
+                              : "border-navy-100 text-navy-600 hover:border-navy-200"
+                          }`}
+                        >
+                          {opt === "yes" ? "Yes" : "No"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Nominee Shareholder */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy-700 mb-1">
+                      Nominee Shareholder
+                    </label>
+                    <p className="text-xs text-navy-400 mb-2">Hold shares on your behalf for privacy and confidentiality</p>
+                    <div className="flex gap-3">
+                      {["yes", "no"].map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => update("nomineeShareholder", opt)}
+                          className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium border transition-all capitalize ${
+                            form.nomineeShareholder === opt
+                              ? "border-brand-500 bg-brand-50 text-brand-600"
+                              : "border-navy-100 text-navy-600 hover:border-navy-200"
+                          }`}
+                        >
+                          {opt === "yes" ? "Yes" : "No"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Tax Identification Certificate */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy-700 mb-1">
+                      Tax Identification Certificate (TIC)
+                    </label>
+                    <p className="text-xs text-navy-400 mb-2">Required for opening bank accounts and official transactions</p>
+                    <div className="flex gap-3">
+                      {["yes", "no"].map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => update("taxCertificate", opt)}
+                          className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium border transition-all capitalize ${
+                            form.taxCertificate === opt
+                              ? "border-brand-500 bg-brand-50 text-brand-600"
+                              : "border-navy-100 text-navy-600 hover:border-navy-200"
+                          }`}
+                        >
+                          {opt === "yes" ? "Yes" : "No"}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* VAT Registration */}
+                  <div>
+                    <label className="block text-sm font-semibold text-navy-700 mb-1">
+                      VAT Registration
+                    </label>
+                    <p className="text-xs text-navy-400 mb-2">Mandatory if turnover exceeds €15,600/year or for intra-EU trade</p>
+                    <div className="flex gap-3">
+                      {["yes", "no"].map((opt) => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => update("vat", opt)}
+                          className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium border transition-all capitalize ${
+                            form.vat === opt
+                              ? "border-brand-500 bg-brand-50 text-brand-600"
+                              : "border-navy-100 text-navy-600 hover:border-navy-200"
+                          }`}
+                        >
+                          {opt === "yes" ? "Yes" : "No"}
                         </button>
                       ))}
                     </div>

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "sonner";
+import InstallPrompt from "@/components/pwa/InstallPrompt";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
             },
           }}
         />
+        <InstallPrompt />
         <Script
           id="sw-register"
           strategy="afterInteractive"

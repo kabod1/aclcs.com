@@ -1,10 +1,12 @@
 import { ImageResponse } from "next/og";
-import { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-export function GET(req: NextRequest) {
-  const size = parseInt(req.nextUrl.searchParams.get("size") || "192");
+export function GET(
+  _req: Request,
+  { params }: { params: { size: string } }
+) {
+  const size = parseInt(params.size) || 192;
   const fontSize = Math.round(size * 0.58);
 
   return new ImageResponse(

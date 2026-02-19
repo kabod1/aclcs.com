@@ -18,14 +18,10 @@ async function requireAdmin() {
   return user;
 }
 
-export async function setClientStatus(clientId: string, status: UserStatus) {
+export async function setClientStatus(clientId: string, status: UserStatus): Promise<void> {
   await requireAdmin();
   const admin = createAdminClient();
-  const { error } = await admin
-    .from("profiles")
-    .update({ status })
-    .eq("id", clientId);
-  if (error) return { error: error.message };
+  await admin.from("profiles").update({ status }).eq("id", clientId);
 
   // If activating, also confirm their email in auth so they can log in
   if (status === "active") {
@@ -36,7 +32,6 @@ export async function setClientStatus(clientId: string, status: UserStatus) {
 
   revalidatePath("/admin/clients");
   revalidatePath(`/admin/clients/${clientId}`);
-  return { success: true };
 }
 
 export async function inviteClient(formData: FormData) {

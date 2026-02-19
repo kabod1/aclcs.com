@@ -8,14 +8,7 @@ export const metadata = { title: "Admin Dashboard | ACLCS" };
 export default async function AdminDashboardPage() {
   const supabase = await createClient();
 
-  const [
-    { count: totalClients },
-    { count: pendingClients },
-    { count: totalCases },
-    { count: activeCases },
-    { data: pendingList },
-    { data: recentCases },
-  ] = await Promise.all([
+  const [r1, r2, r3, r4, r5, r6] = await Promise.all([
     supabase.from("profiles").select("*", { count: "exact", head: true }).eq("role", "client"),
     supabase.from("profiles").select("*", { count: "exact", head: true }).eq("role", "client").eq("status", "pending"),
     supabase.from("cases").select("*", { count: "exact", head: true }),
@@ -23,6 +16,14 @@ export default async function AdminDashboardPage() {
     supabase.from("profiles").select("id, full_name, email, created_at").eq("role", "client").eq("status", "pending").order("created_at", { ascending: false }).limit(5),
     supabase.from("cases").select("id, reference_number, title, status, created_at, profiles(full_name)").order("created_at", { ascending: false }).limit(5),
   ]);
+  const totalClients = r1.count;
+  const pendingClients = r2.count;
+  const totalCases = r3.count;
+  const activeCases = r4.count;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const pendingList = r5.data as any[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const recentCases = r6.data as any[];
 
   const stats = [
     { label: "Total Clients", value: totalClients ?? 0, icon: Users, color: "text-blue-500", bg: "bg-blue-50" },

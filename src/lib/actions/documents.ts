@@ -31,10 +31,10 @@ export async function registerDocument(formData: FormData) {
   return { success: true };
 }
 
-export async function deleteDocument(documentId: string) {
+export async function deleteDocument(documentId: string): Promise<void> {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return { error: "Unauthorized" };
+  if (!user) return;
 
   const admin = createAdminClient();
 
@@ -45,7 +45,7 @@ export async function deleteDocument(documentId: string) {
     .eq("id", documentId)
     .single();
 
-  if (!doc) return { error: "Document not found" };
+  if (!doc) return;
 
   // Check ownership (client) or admin
   const { data: profile } = await supabase
@@ -54,19 +54,15 @@ export async function deleteDocument(documentId: string) {
     .eq("id", user.id)
     .single();
 
-  if (profile?.role !== "admin" && doc.uploaded_by !== user.id) {
-    return { error: "Forbidden" };
-  }
+  if (profile?.role !== "admin" && doc.uploaded_by !== user.id) return;
 
   // Delete from storage
   await admin.storage.from("case-documents").remove([doc.file_path]);
 
   // Delete from DB
-  const { error } = await admin.from("documents").delete().eq("id", documentId);
-  if (error) return { error: error.message };
+  await admin.from("documents").delete().eq("id", documentId);
 
   revalidatePath(`/portal/cases/${doc.case_id}`);
   revalidatePath("/portal/documents");
   revalidatePath(`/admin/cases/${doc.case_id}`);
-  return { success: true };
 }

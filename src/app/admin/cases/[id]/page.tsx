@@ -30,7 +30,7 @@ export default async function AdminCaseDetailPage({
 }) {
   const supabase = await createClient();
 
-  const [{ data: c }, { data: updates }, { data: documents }] = await Promise.all([
+  const [caseRes, updatesRes, documentsRes] = await Promise.all([
     supabase
       .from("cases")
       .select("*, profiles(id, full_name, email, phone, nationality)")
@@ -47,6 +47,10 @@ export default async function AdminCaseDetailPage({
       .eq("case_id", params.id)
       .order("created_at", { ascending: false }),
   ]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const c = caseRes.data as any;
+  const updates = updatesRes.data;
+  const documents = documentsRes.data;
 
   if (!c) notFound();
 

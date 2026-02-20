@@ -19,7 +19,7 @@ export default function Referral() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
               Refer & Earn Up To{" "}
               <span className="underline decoration-white/30 decoration-4 underline-offset-4">
-                EUR 1,000
+                EUR 500
               </span>
             </h2>
             <p className="mt-5 text-lg text-white/70 leading-relaxed max-w-lg">
@@ -53,7 +53,7 @@ export default function Referral() {
                 icon: Wallet,
                 step: "03",
                 title: "Get Paid",
-                desc: "Receive up to EUR 1,000 per successful referral.",
+                desc: "Receive up to EUR 500 per successful referral.",
               },
             ].map((item) => {
               const Icon = item.icon;

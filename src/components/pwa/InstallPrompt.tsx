@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, Share, Plus } from "lucide-react";
+import { X, Share, Plus, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 type Platform = "ios" | "android" | null;
 
@@ -81,6 +82,15 @@ export default function InstallPrompt() {
             <p className="text-xs text-navy-300 mt-0.5">
               Add to your home screen for quick access
             </p>
+          )}
+
+          {platform === "ios" && (
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-1 mt-2 px-3 py-1.5 bg-brand-500 hover:bg-brand-600 text-white text-xs font-semibold rounded-lg transition-colors"
+            >
+              Open Portal <ArrowRight size={11} />
+            </Link>
           )}
 
           {platform === "android" && (

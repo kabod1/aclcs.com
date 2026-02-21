@@ -12,7 +12,11 @@ async function handleCreate(formData: FormData) {
   if (!result?.error) redirect("/admin/cases");
 }
 
-export default async function NewCasePage() {
+export default async function NewCasePage({
+  searchParams,
+}: {
+  searchParams: { client?: string };
+}) {
   const supabase = await createClient();
   const { data: clients } = await supabase
     .from("profiles")
@@ -36,7 +40,7 @@ export default async function NewCasePage() {
       <form action={handleCreate} className="bg-white rounded-2xl border border-navy-100 shadow-sm p-7 space-y-5">
         <div>
           <label className="block text-sm font-semibold text-navy-700 mb-2">Client *</label>
-          <select name="client_id" required className="select-field">
+          <select name="client_id" required className="select-field" defaultValue={searchParams.client ?? ""}>
             <option value="">Select client</option>
             {clients?.map((c) => (
               <option key={c.id} value={c.id}>

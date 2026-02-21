@@ -53,10 +53,38 @@ export default function CostCalculator() {
 
   const handleSubmit = async () => {
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
-    setSubmitted(true);
-    toast.success("Your cost estimate is on its way!");
+    try {
+      const res = await fetch("/api/calculator", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          activity: form.activity,
+          employees: form.employees,
+          shareholders: form.shareholders,
+          officeSpace: form.officeSpace,
+          nomineeDirector: form.nomineeDirector,
+          secretary: form.secretary,
+          nomineeShareholder: form.nomineeShareholder,
+          taxCertificate: form.taxCertificate,
+          vat: form.vat,
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          nationality: form.nationality,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json();
+        toast.error(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+      setSubmitted(true);
+      toast.success("Your cost estimate is on its way!");
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {

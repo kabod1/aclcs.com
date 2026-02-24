@@ -196,22 +196,6 @@ export default function CostCalculator() {
                 <div className="space-y-5">
                   <div>
                     <label className="block text-sm font-semibold text-navy-700 mb-2">
-                      Number of Employees
-                    </label>
-                    <select
-                      value={form.employees}
-                      onChange={(e) => update("employees", e.target.value)}
-                      className="select-field"
-                    >
-                      {[0, 1, 2, 3, 4, 5, 6, "7+"].map((n) => (
-                        <option key={n} value={n}>
-                          {n} {Number(n) === 1 ? "Employee" : "Employees"}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-navy-700 mb-2">
                       Number of Shareholders
                     </label>
                     <select

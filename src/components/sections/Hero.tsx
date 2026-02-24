@@ -7,10 +7,14 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950" />
-      <div className="absolute inset-0 dot-pattern opacity-30" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-600/8 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0D0606] via-[#1A0A0A] to-[#0D0606]" />
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      {/* Imperial Red glow — top right */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-500/15 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
+      {/* Imperial Gold glow — bottom left */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-400/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3" />
+      {/* Center gold shimmer */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gold-500/5 rounded-full blur-[100px]" />
 
       <div className="relative container-wide px-4 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32 lg:pt-36 lg:pb-40">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -108,7 +112,7 @@ export default function Hero() {
                     {[1, 2, 3, 4].map((i) => (
                       <div
                         key={i}
-                        className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-400 to-brand-600 border-2 border-navy-900 flex items-center justify-center text-[10px] text-white font-bold"
+                        className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-300 to-gold-600 border-2 border-[#0D0606] flex items-center justify-center text-[10px] text-white font-bold"
                       >
                         {String.fromCharCode(64 + i)}
                       </div>

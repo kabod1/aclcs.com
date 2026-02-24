@@ -63,8 +63,8 @@ export default function InstallPrompt() {
     <div className="fixed bottom-4 left-4 right-4 z-50 md:left-auto md:right-6 md:max-w-sm">
       <div className="bg-navy-900 text-white rounded-2xl shadow-2xl p-4 flex items-start gap-3">
         {/* App icon */}
-        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-navy-800 flex items-center justify-center">
-          <span className="text-brand-500 text-xl font-bold">A</span>
+        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-brand-600 flex items-center justify-center">
+          <span className="text-gold-400 text-xl font-bold">A</span>
         </div>
 
         {/* Content */}

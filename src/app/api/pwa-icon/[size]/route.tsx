@@ -13,7 +13,7 @@ export function GET(
     (
       <div
         style={{
-          background: "#0f172a",
+          background: "#8B0A1A",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -23,7 +23,7 @@ export function GET(
       >
         <span
           style={{
-            color: "#f97316",
+            color: "#F4B90A",
             fontSize: `${fontSize}px`,
             fontWeight: "bold",
             lineHeight: 1,

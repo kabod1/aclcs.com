@@ -24,11 +24,11 @@ body {
     --muted: 210 20% 96%;
     --muted-foreground: 215 15% 47%;
     --border: 214 20% 92%;
-    --ring: 25 95% 50%;
-    --brand: 25 88% 50%;
-    --brand-dark: 25 88% 40%;
-    --navy: 210 60% 15%;
-    --navy-light: 210 40% 25%;
+    --ring: 350 85% 42%;
+    --brand: 350 85% 42%;
+    --brand-dark: 350 85% 34%;
+    --navy: 30 10% 7%;
+    --navy-light: 30 8% 15%;
   }
 
   * {
@@ -161,9 +161,9 @@ body {
 
   .mesh-gradient {
     background:
-      radial-gradient(at 20% 20%, hsl(25 88% 50% / 0.08) 0, transparent 50%),
-      radial-gradient(at 80% 80%, hsl(210 60% 15% / 0.06) 0, transparent 50%),
-      radial-gradient(at 50% 0%, hsl(25 88% 50% / 0.04) 0, transparent 60%);
+      radial-gradient(at 20% 20%, hsl(350 85% 42% / 0.08) 0, transparent 50%),
+      radial-gradient(at 80% 80%, hsl(43 95% 50% / 0.06) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsl(350 85% 42% / 0.04) 0, transparent 60%);
   }
 }
 

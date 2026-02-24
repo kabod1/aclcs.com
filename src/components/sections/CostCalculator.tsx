@@ -28,7 +28,6 @@ export default function CostCalculator() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     activity: "",
-    employees: "0",
     shareholders: "0",
     officeSpace: "no",
     nomineeDirector: "no",
@@ -59,7 +58,6 @@ export default function CostCalculator() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           activity: form.activity,
-          employees: form.employees,
           shareholders: form.shareholders,
           officeSpace: form.officeSpace,
           nomineeDirector: form.nomineeDirector,

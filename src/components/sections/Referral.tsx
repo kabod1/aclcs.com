@@ -5,9 +5,10 @@ import { Gift, ArrowRight, Users, Wallet, Share2 } from "lucide-react";
 
 export default function Referral() {
   return (
-    <section className="section-padding bg-gradient-to-br from-brand-500 via-brand-600 to-brand-700 relative overflow-hidden">
+    <section className="section-padding bg-gradient-to-br from-brand-900 via-brand-800 to-[#040D24] relative overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-10" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-400/8 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-600/20 rounded-full blur-[100px] -translate-x-1/4 translate-y-1/4" />
 
       <div className="relative container-wide">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -18,7 +19,7 @@ export default function Referral() {
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
               Refer & Earn Up To{" "}
-              <span className="underline decoration-white/30 decoration-4 underline-offset-4">
+              <span className="text-gold-400 underline decoration-gold-400/30 decoration-4 underline-offset-4">
                 EUR 500
               </span>
             </h2>
@@ -28,7 +29,7 @@ export default function Referral() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 mt-8 bg-white text-brand-600 font-bold rounded-xl hover:bg-white/90 transition-all duration-200 shadow-xl shadow-black/10 hover:-translate-y-0.5 text-base"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 mt-8 bg-gold-400 hover:bg-gold-300 text-brand-900 font-bold rounded-xl transition-all duration-200 shadow-xl shadow-black/20 hover:-translate-y-0.5 text-base"
             >
               Start Earning Now
               <ArrowRight size={18} />
@@ -62,10 +63,10 @@ export default function Referral() {
                   key={item.step}
                   className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all"
                 >
-                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                    <Icon size={22} className="text-white" />
+                  <div className="w-12 h-12 rounded-full bg-gold-400/15 border border-gold-400/20 flex items-center justify-center mx-auto mb-4">
+                    <Icon size={22} className="text-gold-400" />
                   </div>
-                  <span className="text-xs font-bold text-white/40">STEP {item.step}</span>
+                  <span className="text-xs font-bold text-gold-400/60">STEP {item.step}</span>
                   <h3 className="text-lg font-bold text-white mt-1">{item.title}</h3>
                   <p className="text-sm text-white/60 mt-2">{item.desc}</p>
                 </div>

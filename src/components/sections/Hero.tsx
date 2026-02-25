@@ -6,21 +6,21 @@ import { ArrowRight, Calculator, Play, Shield, Award, Clock } from "lucide-react
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0D0606] via-[#1A0A0A] to-[#0D0606]" />
-      <div className="absolute inset-0 dot-pattern opacity-20" />
-      {/* Imperial Red glow — top right */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-500/15 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
+      {/* Background — deep midnight navy */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900 to-[#040D24]" />
+      <div className="absolute inset-0 dot-pattern opacity-15" />
+      {/* Midnight navy glow — top right */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-700/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
       {/* Imperial Gold glow — bottom left */}
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-400/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-400/12 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3" />
       {/* Center gold shimmer */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gold-500/5 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[400px] bg-gold-500/6 rounded-full blur-[120px]" />
 
       <div className="relative container-wide px-4 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32 lg:pt-36 lg:pb-40">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left */}
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-brand-300 text-sm font-medium border border-white/10 mb-6 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/10 text-gold-300 text-sm font-medium border border-gold-400/20 mb-6 backdrop-blur-sm">
               <Shield size={14} />
               Licensed Corporate Services Provider
             </div>
@@ -28,10 +28,10 @@ export default function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
               Incorporate Your{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-gradient bg-gradient-to-r from-brand-400 to-brand-500 bg-clip-text text-transparent">
+                <span className="relative z-10 bg-gradient-to-r from-gold-300 to-gold-400 bg-clip-text text-transparent">
                   Business
                 </span>
-                <span className="absolute bottom-1 left-0 right-0 h-3 bg-brand-500/20 rounded-full -z-0" />
+                <span className="absolute bottom-1 left-0 right-0 h-3 bg-gold-400/15 rounded-full -z-0" />
               </span>{" "}
               in Cyprus
             </h1>
@@ -43,11 +43,15 @@ export default function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/#calculator" className="btn-primary text-base">
+              {/* Gold CTA — the signature navy+gold corporate look */}
+              <Link
+                href="/#calculator"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gold-400 hover:bg-gold-300 text-brand-900 font-bold rounded-xl transition-all duration-200 shadow-lg shadow-gold-400/20 hover:-translate-y-0.5 text-base"
+              >
                 <Calculator size={18} />
                 Cost Calculator
               </Link>
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/15 transition-all duration-200 backdrop-blur-sm border border-white/10 hover:-translate-y-0.5">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/15 transition-all duration-200 backdrop-blur-sm border border-white/15 hover:-translate-y-0.5">
                 Contact Us
                 <ArrowRight size={18} />
               </Link>
@@ -56,15 +60,15 @@ export default function Hero() {
             {/* Trust signals */}
             <div className="mt-10 flex items-center gap-6 flex-wrap">
               <div className="flex items-center gap-2 text-white/50">
-                <Award size={16} className="text-brand-400" />
+                <Award size={16} className="text-gold-400" />
                 <span className="text-sm">5,000+ Companies Formed</span>
               </div>
               <div className="flex items-center gap-2 text-white/50">
-                <Clock size={16} className="text-brand-400" />
+                <Clock size={16} className="text-gold-400" />
                 <span className="text-sm">Fast-Track Registration</span>
               </div>
               <div className="flex items-center gap-2 text-white/50">
-                <Shield size={16} className="text-brand-400" />
+                <Shield size={16} className="text-gold-400" />
                 <span className="text-sm">EU-Regulated</span>
               </div>
             </div>
@@ -74,12 +78,12 @@ export default function Hero() {
           <div className="hidden lg:block">
             <div className="relative">
               {/* Floating accent */}
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-500/20 rounded-3xl rotate-12 blur-sm" />
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-brand-400/15 rounded-2xl -rotate-6 blur-sm" />
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-gold-400/15 rounded-3xl rotate-12 blur-sm" />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-brand-500/20 rounded-2xl -rotate-6 blur-sm" />
 
               <div className="relative glass-dark rounded-3xl p-8 space-y-6">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-3 h-3 rounded-full bg-brand-500 animate-pulse-slow" />
+                  <div className="w-3 h-3 rounded-full bg-gold-400 animate-pulse-slow" />
                   <span className="text-sm text-white/50 font-medium">Incorporation Packages</span>
                 </div>
 
@@ -98,7 +102,7 @@ export default function Hero() {
                         <p className="text-xs text-white/40 mt-0.5">{pkg.tag}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-lg font-bold text-brand-400">
+                        <p className="text-lg font-bold text-gold-400">
                           EUR {pkg.price}
                         </p>
                         <p className="text-xs text-white/30">starting from</p>
@@ -119,7 +123,7 @@ export default function Hero() {
                     ))}
                   </div>
                   <p className="text-xs text-white/40">
-                    <span className="text-brand-400 font-semibold">120+</span> companies
+                    <span className="text-gold-400 font-semibold">120+</span> companies
                     formed this month
                   </p>
                 </div>
@@ -127,7 +131,7 @@ export default function Hero() {
 
               {/* Play video hint */}
               <div className="absolute -bottom-6 right-8 glass rounded-2xl px-4 py-3 flex items-center gap-3 animate-float">
-                <div className="w-10 h-10 rounded-full bg-brand-500 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gold-400 flex items-center justify-center">
                   <Play size={16} className="text-white ml-0.5" />
                 </div>
                 <div>

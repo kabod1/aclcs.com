@@ -152,13 +152,13 @@ export default function Footer() {
           <p className="text-xs text-white/30">
             &copy; {new Date().getFullYear()} ACLCS Corporate Services. All rights reserved.
           </p>
-          <p className="text-xs text-white/20">
+          <p className="text-xs text-white">
             Developed by{" "}
             <a
               href="https://townshub.cy"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white/50 transition-colors"
+              className="underline hover:text-white/70 transition-colors"
             >
               TOWNSHUB LIMITED
             </a>

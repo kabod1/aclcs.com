@@ -5,7 +5,6 @@ import {
   ArrowRight,
   Building,
   Globe,
-  Users,
   Target,
   Heart,
   Briefcase,
@@ -14,16 +13,7 @@ import {
 import Stats from "@/components/sections/Stats";
 import CTA from "@/components/sections/CTA";
 
-const LEADERSHIP = [
-  { name: "Andreas Georgiou", role: "Founder & Chairman", initials: "AG" },
-  { name: "Elena Konstantinou", role: "Chief Executive Officer", initials: "EK" },
-  { name: "Marcus Weber", role: "Chief Financial Officer", initials: "MW" },
-  { name: "Sofia Papadopoulos", role: "Chief Operations Officer", initials: "SP" },
-  { name: "Nikolaos Christodoulou", role: "Head of Legal & Compliance", initials: "NC" },
-  { name: "Anna Petridou", role: "Chief Strategy Officer", initials: "AP" },
-  { name: "Lukas Hartmann", role: "Director of Corporate Services", initials: "LH" },
-  { name: "Maria Ioannou", role: "Director of Client Relations", initials: "MI" },
-];
+
 
 const VALUES = [
   {
@@ -143,40 +133,7 @@ export default function AboutPage() {
 
       <Stats />
 
-      {/* Leadership */}
-      <section className="section-padding bg-white" id="team">
-        <div className="container-wide">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="section-label">
-              <Users size={14} />
-              Leadership
-            </span>
-            <h2 className="section-title">
-              Meet Our <span className="text-gradient">Team</span>
-            </h2>
-            <p className="section-subtitle mx-auto mt-4">
-              Experienced professionals dedicated to making your business setup
-              journey seamless and successful.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {LEADERSHIP.map((person) => (
-              <div
-                key={person.name}
-                className="text-center group"
-              >
-                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-navy-100 to-navy-200 flex items-center justify-center mx-auto mb-4 group-hover:from-brand-100 group-hover:to-brand-200 transition-all duration-300">
-                  <span className="text-xl font-bold text-navy-500 group-hover:text-brand-600 transition-colors">
-                    {person.initials}
-                  </span>
-                </div>
-                <h3 className="font-bold text-navy-900 text-sm">{person.name}</h3>
-                <p className="text-xs text-navy-400 mt-1">{person.role}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Careers */}
       <section className="section-padding bg-navy-50/30" id="careers">

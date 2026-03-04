@@ -42,6 +42,16 @@ export const NAV_ITEMS = [
     ],
   },
   { label: "About", href: "/about" },
+  {
+    label: "Blog",
+    href: "/blog",
+    children: [
+      { label: "Amazon & Temu Guides", href: "/blog?category=Amazon+%26+Temu", description: "Marketplace setup, compliance & strategy" },
+      { label: "Company Formation", href: "/blog?category=Company+Formation", description: "Incorporation guides for Chinese entrepreneurs" },
+      { label: "Tax & Finance", href: "/blog?category=Tax+%26+Finance", description: "Cyprus tax planning and savings" },
+      { label: "Legal & Compliance", href: "/blog?category=Legal+%26+Compliance", description: "EU regulations, GDPR, product safety" },
+    ],
+  },
   { label: "Contact", href: "/contact" },
 ];
 

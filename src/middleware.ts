@@ -39,6 +39,14 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/login?error=link_expired", request.url));
     }
 
+    // PKCE flow: Supabase sends ?code= to the root when redirectTo isn't matched —
+    // forward it to the confirm route so the code can be exchanged for a session
+    if (pathname === "/" && searchParams.get("code")) {
+      return NextResponse.redirect(
+        new URL(`/api/auth/confirm?code=${searchParams.get("code")}`, request.url)
+      );
+    }
+
     // If the user is logged in and tries to access auth pages, redirect them
     if (user && (pathname === "/login" || pathname === "/register" || pathname === "/reset-password")) {
       // Need to know their role to redirect correctly

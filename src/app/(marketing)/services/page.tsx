@@ -436,13 +436,14 @@ export default function ServicesPage() {
       <section className="section-padding bg-navy-50/40" id="ecommerce-packages">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="section-label">E-Commerce Packages</span>
+            <span className="section-label">For Chinese Amazon & Temu Sellers</span>
             <h2 className="section-title mt-4">
-              Designed Specifically for Amazon & Temu Sellers
+              All-Inclusive E-Commerce Packages
             </h2>
             <p className="section-subtitle mx-auto mt-4">
-              Purpose-built packages for Chinese online shop owners — not generic company formation.
-              Every package is tailored to what marketplace sellers actually need.
+              Purpose-built for Chinese online sellers expanding to EU marketplaces. Every package
+              bundles legal formation, compliance, banking, and marketplace setup into one fixed fee —
+              no hidden costs, no separate invoices.
             </p>
           </div>
           <div className="grid lg:grid-cols-3 gap-6">
@@ -626,11 +627,12 @@ export default function ServicesPage() {
       <section className="section-padding bg-navy-50/30" id="cyprus">
         <div className="container-wide">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="section-label">All Jurisdictions</span>
-            <h2 className="section-title mt-4">Company Setup Options</h2>
+            <span className="section-label">For All Other Business Incorporations</span>
+            <h2 className="section-title mt-4">Standard Legal Formation Services</h2>
             <p className="section-subtitle mx-auto mt-4">
-              From Cyprus to full EU multi-jurisdiction structures and international setups.
-              Choose the framework that best fits your growth ambitions.
+              Our core legal practice — serving businesses of all types and nationalities for over
+              35 years. If you need the company registered without the e-commerce extras, choose
+              the jurisdiction that fits your structure.
             </p>
           </div>
           <div className="space-y-8">

@@ -50,7 +50,7 @@ const ECOMMERCE_PACKAGES = [
     icon: ShoppingCart,
     title: "Amazon & Temu Starter",
     subtitle: "Everything to launch your EU marketplace presence",
-    price: "3,995",
+    price: "7,995",
     period: "one-time setup",
     description:
       "The complete foundation package for Chinese sellers ready to launch legally on Amazon EU and Temu Europe with a Cyprus company.",
@@ -75,7 +75,7 @@ const ECOMMERCE_PACKAGES = [
     icon: TrendingUp,
     title: "E-Commerce Growth",
     subtitle: "Scale with brand protection and full compliance",
-    price: "9,995",
+    price: "13,995",
     period: "one-time setup",
     description:
       "For sellers who are serious about building a defensible European brand with trademark protection, accounting, and tax efficiency.",
@@ -100,7 +100,7 @@ const ECOMMERCE_PACKAGES = [
     icon: Crown,
     title: "Brand Empire",
     subtitle: "Multi-brand holding structure for serious entrepreneurs",
-    price: "19,995",
+    price: "27,995",
     period: "one-time setup",
     description:
       "The full corporate structure for Chinese entrepreneurs building a portfolio of European brands with maximum tax efficiency.",

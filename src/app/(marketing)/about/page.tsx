@@ -96,7 +96,7 @@ export default function AboutPage() {
                   { value: "5,000+", label: "Companies Formed" },
                   { value: "30+", label: "EU Jurisdictions" },
                   { value: "150+", label: "Nationalities Served" },
-                  { value: "15+", label: "Years Experience" },
+                  { value: "35+", label: "Years Experience" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-4 rounded-xl bg-navy-50">
                     <p className="text-2xl font-bold text-navy-900">{stat.value}</p>

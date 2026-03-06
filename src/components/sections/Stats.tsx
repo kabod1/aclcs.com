@@ -7,7 +7,7 @@ const STATS = [
   { icon: Users, value: 5000, suffix: "+", label: "Companies Formed" },
   { icon: Building2, value: 27, suffix: "", label: "EU Jurisdictions" },
   { icon: Globe2, value: 100, suffix: "+", label: "Nationalities Served" },
-  { icon: Award, value: 15, suffix: "", label: "Years of Experience" },
+  { icon: Award, value: 35, suffix: "", label: "Years of Experience" },
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {

@@ -2,10 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Mail, Lock, LogIn, Eye, EyeOff } from "lucide-react";
 import { signIn } from "@/lib/actions/auth";
 
+const URL_ERRORS: Record<string, string> = {
+  link_expired: "Your password reset link has expired. Please request a new one.",
+  invalid_link: "This link is invalid or has already been used. Please request a new one.",
+};
+
 export default function LoginForm() {
+  const searchParams = useSearchParams();
+  const urlError = URL_ERRORS[searchParams.get("error") ?? ""] ?? "";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -29,9 +37,9 @@ export default function LoginForm() {
         <p className="text-sm text-navy-400 mt-1">Sign in to your client portal</p>
       </div>
 
-      {error && (
+      {(urlError || error) && (
         <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-sm text-red-600">
-          {error}
+          {urlError || error}
         </div>
       )}
 

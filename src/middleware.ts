@@ -32,7 +32,12 @@ export async function middleware(request: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    const { pathname } = request.nextUrl;
+    const { pathname, searchParams } = request.nextUrl;
+
+    // If Supabase redirects here with an auth error (e.g. otp_expired), send to login with message
+    if (searchParams.get("error_code") === "otp_expired" || searchParams.get("error") === "access_denied") {
+      return NextResponse.redirect(new URL("/login?error=link_expired", request.url));
+    }
 
     // If the user is logged in and tries to access auth pages, redirect them
     if (user && (pathname === "/login" || pathname === "/register" || pathname === "/reset-password")) {

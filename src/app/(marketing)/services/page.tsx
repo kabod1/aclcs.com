@@ -55,7 +55,7 @@ const ECOMMERCE_PACKAGES = [
     description:
       "The complete foundation package for Chinese sellers ready to launch legally on Amazon EU and Temu Europe with a Cyprus company.",
     features: [
-      "Cyprus company registration (5–7 days)",
+      "Cyprus company registration (15–20 business days)",
       "EU VAT registration",
       "EORI customs import number",
       "Wise Business account setup",
@@ -132,7 +132,7 @@ const SETUP_OPTIONS = [
       "100% foreign ownership",
       "12.5% corporate tax rate",
       "EU member state access",
-      "Quick incorporation (5–7 days)",
+      "Quick incorporation (15–20 business days)",
       "Corporate bank account",
       "Registered office address",
       "Double tax treaty with China",
@@ -215,7 +215,7 @@ const CHINA_ADVANTAGES = [
   },
   {
     icon: Zap,
-    title: "5–7 Day Setup",
+    title: "15–20 Business Day Setup",
     desc: "Fastest EU incorporation timeline. No visits required — we handle everything remotely with Mandarin support.",
     stat: "100% remote process",
   },
@@ -256,7 +256,7 @@ const PROCESS_STEPS = [
     step: "03",
     title: "Company Registration",
     desc: "Cyprus Registrar of Companies incorporation. Certificate of Incorporation, MOA, and all corporate documents issued.",
-    duration: "5–7 days",
+    duration: "15–20 business days",
   },
   {
     step: "04",
@@ -358,7 +358,7 @@ export default function ServicesPage() {
               {[
                 { icon: BadgeCheck, text: "5,000+ companies incorporated" },
                 { icon: Star, text: "Mandarin-speaking advisors" },
-                { icon: Zap, text: "5–7 day incorporation" },
+                { icon: Zap, text: "15–20 business days incorporation" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2 text-white/50 text-sm">
                   <item.icon size={16} className="text-brand-400 shrink-0" />

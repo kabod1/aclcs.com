@@ -76,7 +76,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>This makes profit repatriation back to China significantly more tax-efficient than through most other European jurisdictions.</p>
 
 <h2>How to Get Started</h2>
-<p>Incorporating a Cyprus company as a Chinese citizen requires standard documentation: your passport, a business address in Cyprus (which can be provided by a registered agent), company name approval, and the memorandum of association. The process typically takes 5-7 working days once all documents are submitted.</p>
+<p>Incorporating a Cyprus company as a Chinese citizen requires standard documentation: your passport, a business address in Cyprus (which can be provided by a registered agent), company name approval, and the memorandum of association. The process typically takes 15–20 business days once all documents are submitted.</p>
 <p>At ACLCS, we handle the entire process — from initial consultation to company registration, bank account opening, VAT and EORI registration, and ongoing compliance. Our team includes Mandarin-speaking advisors who have guided hundreds of Chinese entrepreneurs through this exact process.</p>
 <p>The question is no longer whether you should set up a Cyprus company for your Amazon or Temu business. The question is how soon you can do it before your competitors do.</p>
     `,
@@ -124,7 +124,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Certificate of Incorporation issued</li>
 <li>Company seal and share certificates prepared</li>
 </ul>
-<p>Total timeline: <strong>5-7 working days</strong> for standard processing, or 1-2 days with express service.</p>
+<p>Total timeline: <strong>15–20 business days</strong> for standard processing.</p>
 
 <h2>Step 4: Open a Business Bank Account</h2>
 <p>This is the step that trips up most people. European banks have strict KYC (Know Your Customer) requirements, and they are particularly cautious with accounts for non-EU residents.</p>
@@ -343,7 +343,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Timeline</h2>
 <ul>
-<li>Cyprus company registration: 5-7 days</li>
+<li>Cyprus company registration: 15–20 business days</li>
 <li>Bank account opening: 5-10 days</li>
 <li>VAT registration: 2-4 weeks</li>
 <li>Amazon account verification: 2-5 days</li>
@@ -864,7 +864,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>The 30-Day Roadmap</h2>
 <h3>Week 1: Set Up Your Cyprus Foundation</h3>
 <ul>
-<li>Cyprus company incorporated (5-7 days with ACLCS fast-track)</li>
+<li>Cyprus company incorporated (15–20 business days with ACLCS)</li>
 <li>Company documents apostilled and certified</li>
 <li>Registered office address confirmed</li>
 <li>Director/shareholder documents prepared</li>

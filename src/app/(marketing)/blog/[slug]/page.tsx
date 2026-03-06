@@ -195,7 +195,7 @@ export default function BlogPostPage({ params }: PageProps) {
                   <ul className="mt-4 space-y-2">
                     {[
                       "Free consultation",
-                      "5–7 day incorporation",
+                      "15–20 business days incorporation",
                       "100% remote process",
                       "Mandarin support",
                     ].map((item) => (
@@ -234,7 +234,7 @@ export default function BlogPostPage({ params }: PageProps) {
                   <div className="space-y-3">
                     {[
                       { label: "Corporate Tax", value: "12.5%" },
-                      { label: "Incorporation Time", value: "5–7 days" },
+                      { label: "Incorporation Time", value: "15–20 business days" },
                       { label: "Foreign Ownership", value: "100% allowed" },
                       { label: "EU Member", value: "Since 2004" },
                       { label: "Official Language", value: "Greek & English" },

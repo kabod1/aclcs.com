@@ -2,6 +2,24 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
+  const { pathname, searchParams } = request.nextUrl;
+
+  // Run auth-redirect checks BEFORE Supabase session call so they are never
+  // swallowed by the catch block if Supabase is slow or unreachable.
+
+  // If Supabase redirects here with an auth error (e.g. otp_expired), send to login with message
+  if (searchParams.get("error_code") === "otp_expired" || searchParams.get("error") === "access_denied") {
+    return NextResponse.redirect(new URL("/login?error=link_expired", request.url));
+  }
+
+  // PKCE flow: Supabase sends ?code= to the root when redirectTo isn't matched —
+  // forward it to the confirm route so the code can be exchanged for a session
+  if (pathname === "/" && searchParams.get("code")) {
+    return NextResponse.redirect(
+      new URL(`/api/auth/confirm?code=${searchParams.get("code")}`, request.url)
+    );
+  }
+
   try {
     let supabaseResponse = NextResponse.next({ request });
 
@@ -31,21 +49,6 @@ export async function middleware(request: NextRequest) {
     const {
       data: { user },
     } = await supabase.auth.getUser();
-
-    const { pathname, searchParams } = request.nextUrl;
-
-    // If Supabase redirects here with an auth error (e.g. otp_expired), send to login with message
-    if (searchParams.get("error_code") === "otp_expired" || searchParams.get("error") === "access_denied") {
-      return NextResponse.redirect(new URL("/login?error=link_expired", request.url));
-    }
-
-    // PKCE flow: Supabase sends ?code= to the root when redirectTo isn't matched —
-    // forward it to the confirm route so the code can be exchanged for a session
-    if (pathname === "/" && searchParams.get("code")) {
-      return NextResponse.redirect(
-        new URL(`/api/auth/confirm?code=${searchParams.get("code")}`, request.url)
-      );
-    }
 
     // If the user is logged in and tries to access auth pages, redirect them
     if (user && (pathname === "/login" || pathname === "/register" || pathname === "/reset-password")) {

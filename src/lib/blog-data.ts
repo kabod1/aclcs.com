@@ -64,7 +64,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
 <h2>Banking That Works for Chinese Businesses</h2>
 <p>Perhaps the most painful problem Chinese sellers face in Europe is banking. Stripe won't process payments for Chinese-registered entities. PayPal for Business has significant restrictions. European customers don't trust transfers to Chinese bank accounts.</p>
-<p>A Cyprus company changes everything. With a legitimate EU company, you can open accounts with major banks like Hellenic Bank, Alpha Bank, or Bank of Cyprus, plus access payment processors like Stripe, PayPal Business, Wise Business, and Revolut Business. Your customers see a trusted European entity. Your money flows freely.</p>
+<p>A Cyprus company changes everything. With a legitimate EU company, you can open accounts with major banks like Eurobank, Alpha Bank, or Bank of Cyprus, plus access payment processors like Stripe, PayPal Business, Wise Business, and Revolut Business. Your customers see a trusted European entity. Your money flows freely.</p>
 
 <h2>The Double Tax Treaty with China</h2>
 <p>Cyprus has a comprehensive double tax treaty with the People's Republic of China, signed in 1990 and still fully in force. This treaty means:</p>
@@ -130,7 +130,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>This is the step that trips up most people. European banks have strict KYC (Know Your Customer) requirements, and they are particularly cautious with accounts for non-EU residents.</p>
 <p>Your best options as a Chinese business owner in Cyprus:</p>
 <ul>
-<li><strong>Hellenic Bank</strong> — Most Chinese-friendly, has experience with Chinese corporate clients</li>
+<li><strong>Eurobank</strong> — Most Chinese-friendly, has experience with Chinese corporate clients</li>
 <li><strong>Bank of Cyprus</strong> — Largest local bank, good for larger businesses</li>
 <li><strong>Wise Business</strong> — Fully online, excellent for multi-currency operations, easier approval</li>
 <li><strong>Revolut Business</strong> — Fast setup, good for e-commerce payment flows</li>
@@ -328,7 +328,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>Step 4: Connect Your Cyprus Bank Account</h2>
 <p>Amazon EU pays sellers in EUR. Your Cyprus bank account receives payments directly. For seamless transfers, we recommend:</p>
 <ul>
-<li>Bank of Cyprus or Hellenic Bank for direct IBAN payments</li>
+<li>Bank of Cyprus or Eurobank for direct IBAN payments</li>
 <li>Wise Business for lower conversion fees if you need to send money to China</li>
 
 </ul>
@@ -531,8 +531,8 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Here's how to navigate this successfully.</p>
 
 <h2>Traditional Banks: The Ones That Work for Chinese Companies</h2>
-<h3>Hellenic Bank (Cyprus)</h3>
-<p>Our top recommendation for Chinese business owners in Cyprus. Hellenic Bank has extensive experience with Chinese corporate clients and has dedicated relationship managers who understand Chinese business structures. Expect:</p>
+<h3>Eurobank (Cyprus)</h3>
+<p>Our top recommendation for Chinese business owners in Cyprus. Eurobank has extensive experience with Chinese corporate clients and has dedicated relationship managers who understand Chinese business structures. Expect:</p>
 <ul>
 <li>2-4 week processing time</li>
 <li>In-person meeting required (or via authorized representative)</li>
@@ -541,10 +541,10 @@ export const BLOG_POSTS: BlogPost[] = [
 </ul>
 
 <h3>Bank of Cyprus</h3>
-<p>The largest bank in Cyprus, good for established businesses with clear revenue history. More conservative than Hellenic Bank but provides premium business banking services. Better for companies with €100,000+ in annual transactions.</p>
+<p>The largest bank in Cyprus, good for established businesses with clear revenue history. More conservative than Eurobank but provides premium business banking services. Better for companies with €100,000+ in annual transactions.</p>
 
 <h3>Alpha Bank Cyprus</h3>
-<p>Part of the Greek Alpha Bank group, with experience in international business clients. Good alternative if Hellenic Bank or Bank of Cyprus don't work out.</p>
+<p>Part of the Greek Alpha Bank group, with experience in international business clients. Good alternative if Eurobank or Bank of Cyprus don't work out.</p>
 
 <h2>Fintech Alternatives: Fast, Flexible, and Powerful</h2>
 <h3>Wise Business (formerly TransferWise)</h3>
@@ -572,7 +572,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <h2>The Optimal Banking Setup for Chinese Amazon/Temu Sellers</h2>
 <p>Based on our experience with hundreds of Chinese seller clients, the optimal setup is:</p>
 <ol>
-<li><strong>Primary bank account</strong>: Hellenic Bank Cyprus (for credibility and compliance)</li>
+<li><strong>Primary bank account</strong>: Eurobank Cyprus (for credibility and compliance)</li>
 <li><strong>Operational account</strong>: Wise Business (for Amazon payments and international transfers)</li>
 <li><strong>China transfers</strong>: Airwallex (for CNY payments to suppliers)</li>
 </ol>
@@ -1079,7 +1079,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li><strong>Temu payments</strong>: Received to Wise Business or Cyprus bank account</li>
 <li><strong>Own website sales</strong>: Stripe as primary processor</li>
 <li><strong>Supplier payments in China</strong>: Wise Business CNY transfers</li>
-<li><strong>Reserve funds</strong>: Cyprus bank account (Hellenic Bank or Bank of Cyprus)</li>
+<li><strong>Reserve funds</strong>: Cyprus bank account (Eurobank or Bank of Cyprus)</li>
 </ol>
 
 <h2>Moving Money from Cyprus to China</h2>
@@ -1353,15 +1353,15 @@ export const BLOG_POSTS: BlogPost[] = [
     category: "Banking & Payments",
     readTime: "10 min read",
     publishDate: "January 5, 2025",
-    tags: ["Cyprus Banking", "Bank Comparison", "Chinese Business", "Hellenic Bank", "Wise Business"],
+    tags: ["Cyprus Banking", "Bank Comparison", "Chinese Business", "Eurobank", "Wise Business"],
     content: `
 <h2>The Banking Landscape in Cyprus for Chinese Companies</h2>
 <p>Cyprus has a well-developed banking sector shaped by its role as a major European financial center. For Chinese business owners, the challenge is not the number of options but knowing which banks are genuinely open to Chinese-owned entities and what's required to get approved.</p>
 <p>Based on our experience opening bank accounts for hundreds of Chinese-owned Cyprus companies, here's the comprehensive picture in 2025.</p>
 
-<h2>Hellenic Bank: Our Top Recommendation</h2>
+<h2>Eurobank: Our Top Recommendation</h2>
 <p><strong>Overall Rating: ★★★★★</strong></p>
-<p>Hellenic Bank has emerged as the most Chinese-friendly traditional bank in Cyprus. Key facts:</p>
+<p>Eurobank has emerged as the most Chinese-friendly traditional bank in Cyprus. Key facts:</p>
 <ul>
 <li>Dedicated international business team with experience in Chinese corporate clients</li>
 <li>IBAN in EUR for all standard transactions</li>
@@ -1418,7 +1418,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <p>Based on optimizing for cost, compliance, and functionality:</p>
 <ol>
 <li><strong>Wise Business</strong>: Primary operational account, Amazon/Temu payments</li>
-<li><strong>Hellenic Bank</strong>: Compliance anchor, larger transactions, bank reference letters</li>
+<li><strong>Eurobank</strong>: Compliance anchor, larger transactions, bank reference letters</li>
 <li><strong>Airwallex</strong>: China supplier payments</li>
 </ol>
 <p>This stack costs approximately €150-300/year in monthly fees and gives you full EU banking functionality with excellent China connectivity.</p>
@@ -1440,7 +1440,7 @@ export const BLOG_POSTS: BlogPost[] = [
 <li>Cyprus company "Luxlink Electronics Ltd" incorporated in 8 days</li>
 <li>EU trademark filed for his brand name in 3 product categories</li>
 <li>Amazon brand transferred to Cyprus entity</li>
-<li>Hellenic Bank account opened after 4 weeks</li>
+<li>Eurobank account opened after 4 weeks</li>
 </ul>
 <p>Result: Two years later, annual revenue exceeds €1.2M. He saved €96,000 in 2023 versus what he would have paid the previous arrangement holder, plus significantly reduced tax burden under Cyprus structure.</p>
 

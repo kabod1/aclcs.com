@@ -83,7 +83,7 @@ const ECOMMERCE_PACKAGES = [
       "Everything in Starter package",
       "EU trademark filing (EUIPO)",
       "Amazon Brand Registry setup",
-      "Hellenic Bank account opening",
+      "Eurobank account opening",
       "1 year bookkeeping & accounting",
       "Annual VAT compliance",
       "Corporate tax return filing",

@@ -1,7 +1,12 @@
+import { Suspense } from "react";
 import LoginForm from "@/components/auth/LoginForm";
 
 export const metadata = { title: "Sign In | ACLCS Client Portal" };
 
 export default function LoginPage() {
-  return <LoginForm />;
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
+  );
 }

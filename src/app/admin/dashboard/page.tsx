@@ -13,26 +13,20 @@ function formatPath(path: string) {
 
 export default async function AdminDashboardPage() {
   const supabase = await createClient();
-  const admin = createAdminClient();
 
   const now = new Date();
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
   const weekStart = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
   const monthStart = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
-  const [r1, r2, r3, r4, r5, r6, pvToday, pvWeek, pvMonth, pvTopPages, pvCountries, pvRecent] = await Promise.all([
+  // Core portal queries — must not fail
+  const [r1, r2, r3, r4, r5, r6] = await Promise.all([
     supabase.from("profiles").select("*", { count: "exact", head: true }).eq("role", "client"),
     supabase.from("profiles").select("*", { count: "exact", head: true }).eq("role", "client").eq("status", "pending"),
     supabase.from("cases").select("*", { count: "exact", head: true }),
     supabase.from("cases").select("*", { count: "exact", head: true }).not("status", "in", '("completed")'),
     supabase.from("profiles").select("id, full_name, email, created_at").eq("role", "client").eq("status", "pending").order("created_at", { ascending: false }).limit(5),
     supabase.from("cases").select("id, reference_number, title, status, created_at, profiles(full_name)").order("created_at", { ascending: false }).limit(5),
-    admin.from("page_views").select("*", { count: "exact", head: true }).gte("created_at", todayStart),
-    admin.from("page_views").select("*", { count: "exact", head: true }).gte("created_at", weekStart),
-    admin.from("page_views").select("*", { count: "exact", head: true }).gte("created_at", monthStart),
-    admin.from("page_views").select("path").gte("created_at", monthStart),
-    admin.from("page_views").select("country").gte("created_at", monthStart).not("country", "is", null),
-    admin.from("page_views").select("path, country, created_at").order("created_at", { ascending: false }).limit(8),
   ]);
 
   const totalClients = r1.count;
@@ -44,19 +38,51 @@ export default async function AdminDashboardPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recentCases = r6.data as any[];
 
-  // Aggregate top pages
-  const pageCounts: Record<string, number> = {};
-  (pvTopPages.data ?? []).forEach((row: { path: string }) => {
-    pageCounts[row.path] = (pageCounts[row.path] ?? 0) + 1;
-  });
-  const topPages = Object.entries(pageCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  // Analytics queries — isolated so they never crash the page
+  let pvTodayCount = 0;
+  let pvWeekCount = 0;
+  let pvMonthCount = 0;
+  let topPages: [string, number][] = [];
+  let topCountries: [string, number][] = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let recentVisits: any[] = [];
+  let analyticsError = false;
 
-  // Aggregate top countries
-  const countryCounts: Record<string, number> = {};
-  (pvCountries.data ?? []).forEach((row: { country: string }) => {
-    if (row.country) countryCounts[row.country] = (countryCounts[row.country] ?? 0) + 1;
-  });
-  const topCountries = Object.entries(countryCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  try {
+    const admin = createAdminClient();
+    const [pvToday, pvWeek, pvMonth, pvTopPages, pvCountries, pvRecent] = await Promise.all([
+      admin.from("page_views").select("*", { count: "exact", head: true }).gte("created_at", todayStart),
+      admin.from("page_views").select("*", { count: "exact", head: true }).gte("created_at", weekStart),
+      admin.from("page_views").select("*", { count: "exact", head: true }).gte("created_at", monthStart),
+      admin.from("page_views").select("path").gte("created_at", monthStart),
+      admin.from("page_views").select("country").gte("created_at", monthStart).not("country", "is", null),
+      admin.from("page_views").select("path, country, created_at").order("created_at", { ascending: false }).limit(8),
+    ]);
+
+    if (pvToday.error || pvWeek.error || pvMonth.error) {
+      analyticsError = true;
+    } else {
+      pvTodayCount = pvToday.count ?? 0;
+      pvWeekCount = pvWeek.count ?? 0;
+      pvMonthCount = pvMonth.count ?? 0;
+
+      const pageCounts: Record<string, number> = {};
+      (pvTopPages.data ?? []).forEach((row: { path: string }) => {
+        pageCounts[row.path] = (pageCounts[row.path] ?? 0) + 1;
+      });
+      topPages = Object.entries(pageCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+      const countryCounts: Record<string, number> = {};
+      (pvCountries.data ?? []).forEach((row: { country: string }) => {
+        if (row.country) countryCounts[row.country] = (countryCounts[row.country] ?? 0) + 1;
+      });
+      topCountries = Object.entries(countryCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+      recentVisits = (pvRecent.data ?? []) as any[];
+    }
+  } catch {
+    analyticsError = true;
+  }
 
   const stats = [
     { label: "Total Clients", value: totalClients ?? 0, icon: Users, color: "text-blue-500", bg: "bg-blue-50" },
@@ -95,118 +121,125 @@ export default async function AdminDashboardPage() {
           Website Traffic
         </h2>
 
-        {/* Traffic counters */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
-          {[
-            { label: "Views Today", value: pvToday.count ?? 0, icon: Eye, color: "text-purple-500", bg: "bg-purple-50" },
-            { label: "Views This Week", value: pvWeek.count ?? 0, icon: TrendingUp, color: "text-brand-500", bg: "bg-brand-50" },
-            { label: "Views This Month", value: pvMonth.count ?? 0, icon: Globe, color: "text-green-500", bg: "bg-green-50" },
-          ].map((s) => {
-            const Icon = s.icon;
-            return (
-              <div key={s.label} className="bg-white rounded-2xl border border-navy-100 p-5 shadow-sm">
-                <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center mb-3`}>
-                  <Icon size={20} className={s.color} />
+        {analyticsError ? (
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 text-sm text-amber-700">
+            Analytics unavailable — ensure the <code>page_views</code> table exists in Supabase and <code>SUPABASE_SERVICE_ROLE_KEY</code> is set in Vercel.
+          </div>
+        ) : (
+          <>
+            {/* Traffic counters */}
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              {[
+                { label: "Views Today", value: pvTodayCount, icon: Eye, color: "text-purple-500", bg: "bg-purple-50" },
+                { label: "Views This Week", value: pvWeekCount, icon: TrendingUp, color: "text-brand-500", bg: "bg-brand-50" },
+                { label: "Views This Month", value: pvMonthCount, icon: Globe, color: "text-green-500", bg: "bg-green-50" },
+              ].map((s) => {
+                const Icon = s.icon;
+                return (
+                  <div key={s.label} className="bg-white rounded-2xl border border-navy-100 p-5 shadow-sm">
+                    <div className={`w-10 h-10 rounded-xl ${s.bg} flex items-center justify-center mb-3`}>
+                      <Icon size={20} className={s.color} />
+                    </div>
+                    <p className="text-2xl font-bold text-navy-900">{s.value}</p>
+                    <p className="text-xs text-navy-400 mt-1">{s.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-6">
+              {/* Top Pages */}
+              <div className="bg-white rounded-2xl border border-navy-100 shadow-sm overflow-hidden">
+                <div className="px-6 py-4 border-b border-navy-100">
+                  <h3 className="font-bold text-navy-900 flex items-center gap-2">
+                    <FileText size={15} className="text-navy-400" />
+                    Top Pages (30 days)
+                  </h3>
                 </div>
-                <p className="text-2xl font-bold text-navy-900">{s.value}</p>
-                <p className="text-xs text-navy-400 mt-1">{s.label}</p>
+                {topPages.length > 0 ? (
+                  <ul className="divide-y divide-navy-50">
+                    {topPages.map(([path, count]) => (
+                      <li key={path} className="px-6 py-3 flex items-center justify-between gap-3">
+                        <div className="min-w-0">
+                          <p className="text-sm font-medium text-navy-800 truncate">{formatPath(path)}</p>
+                          <p className="text-xs text-navy-400 truncate">{path}</p>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <div className="w-16 bg-navy-100 rounded-full h-1.5 overflow-hidden">
+                            <div
+                              className="h-full bg-brand-400 rounded-full"
+                              style={{ width: `${Math.round((count / (topPages[0]?.[1] ?? 1)) * 100)}%` }}
+                            />
+                          </div>
+                          <span className="text-xs font-semibold text-navy-600 w-6 text-right">{count}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="px-6 py-8 text-sm text-navy-400 text-center">No data yet</p>
+                )}
               </div>
-            );
-          })}
-        </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Top Pages */}
-          <div className="bg-white rounded-2xl border border-navy-100 shadow-sm overflow-hidden">
-            <div className="px-6 py-4 border-b border-navy-100">
-              <h3 className="font-bold text-navy-900 flex items-center gap-2">
-                <FileText size={15} className="text-navy-400" />
-                Top Pages (30 days)
-              </h3>
-            </div>
-            {topPages.length > 0 ? (
-              <ul className="divide-y divide-navy-50">
-                {topPages.map(([path, count]) => (
-                  <li key={path} className="px-6 py-3 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <p className="text-sm font-medium text-navy-800 truncate">{formatPath(path)}</p>
-                      <p className="text-xs text-navy-400 truncate">{path}</p>
-                    </div>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <div className="w-16 bg-navy-100 rounded-full h-1.5 overflow-hidden">
-                        <div
-                          className="h-full bg-brand-400 rounded-full"
-                          style={{ width: `${Math.round((count / (topPages[0]?.[1] ?? 1)) * 100)}%` }}
-                        />
-                      </div>
-                      <span className="text-xs font-semibold text-navy-600 w-6 text-right">{count}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="px-6 py-8 text-sm text-navy-400 text-center">No data yet</p>
-            )}
-          </div>
+              {/* Top Countries */}
+              <div className="bg-white rounded-2xl border border-navy-100 shadow-sm overflow-hidden">
+                <div className="px-6 py-4 border-b border-navy-100">
+                  <h3 className="font-bold text-navy-900 flex items-center gap-2">
+                    <Globe size={15} className="text-navy-400" />
+                    Top Countries (30 days)
+                  </h3>
+                </div>
+                {topCountries.length > 0 ? (
+                  <ul className="divide-y divide-navy-50">
+                    {topCountries.map(([country, count]) => (
+                      <li key={country} className="px-6 py-3 flex items-center justify-between gap-3">
+                        <p className="text-sm font-medium text-navy-800">{country}</p>
+                        <div className="flex items-center gap-2">
+                          <div className="w-16 bg-navy-100 rounded-full h-1.5 overflow-hidden">
+                            <div
+                              className="h-full bg-green-400 rounded-full"
+                              style={{ width: `${Math.round((count / (topCountries[0]?.[1] ?? 1)) * 100)}%` }}
+                            />
+                          </div>
+                          <span className="text-xs font-semibold text-navy-600 w-6 text-right">{count}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="px-6 py-8 text-sm text-navy-400 text-center">No data yet</p>
+                )}
+              </div>
 
-          {/* Top Countries */}
-          <div className="bg-white rounded-2xl border border-navy-100 shadow-sm overflow-hidden">
-            <div className="px-6 py-4 border-b border-navy-100">
-              <h3 className="font-bold text-navy-900 flex items-center gap-2">
-                <Globe size={15} className="text-navy-400" />
-                Top Countries (30 days)
-              </h3>
+              {/* Recent Visits */}
+              <div className="bg-white rounded-2xl border border-navy-100 shadow-sm overflow-hidden">
+                <div className="px-6 py-4 border-b border-navy-100">
+                  <h3 className="font-bold text-navy-900 flex items-center gap-2">
+                    <Eye size={15} className="text-navy-400" />
+                    Recent Visits
+                  </h3>
+                </div>
+                {recentVisits.length > 0 ? (
+                  <ul className="divide-y divide-navy-50">
+                    {recentVisits.map((row, i) => (
+                      <li key={i} className="px-6 py-2.5 flex items-center justify-between gap-2">
+                        <div className="min-w-0">
+                          <p className="text-xs font-medium text-navy-800 truncate">{formatPath(row.path)}</p>
+                          <p className="text-xs text-navy-400">{row.country ?? "Unknown"}</p>
+                        </div>
+                        <p className="text-xs text-navy-400 shrink-0">
+                          {new Date(row.created_at).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="px-6 py-8 text-sm text-navy-400 text-center">No visits yet</p>
+                )}
+              </div>
             </div>
-            {topCountries.length > 0 ? (
-              <ul className="divide-y divide-navy-50">
-                {topCountries.map(([country, count]) => (
-                  <li key={country} className="px-6 py-3 flex items-center justify-between gap-3">
-                    <p className="text-sm font-medium text-navy-800">{country}</p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-16 bg-navy-100 rounded-full h-1.5 overflow-hidden">
-                        <div
-                          className="h-full bg-green-400 rounded-full"
-                          style={{ width: `${Math.round((count / (topCountries[0]?.[1] ?? 1)) * 100)}%` }}
-                        />
-                      </div>
-                      <span className="text-xs font-semibold text-navy-600 w-6 text-right">{count}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="px-6 py-8 text-sm text-navy-400 text-center">No data yet</p>
-            )}
-          </div>
-
-          {/* Recent Visits */}
-          <div className="bg-white rounded-2xl border border-navy-100 shadow-sm overflow-hidden">
-            <div className="px-6 py-4 border-b border-navy-100">
-              <h3 className="font-bold text-navy-900 flex items-center gap-2">
-                <Eye size={15} className="text-navy-400" />
-                Recent Visits
-              </h3>
-            </div>
-            {pvRecent.data && pvRecent.data.length > 0 ? (
-              <ul className="divide-y divide-navy-50">
-                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                {(pvRecent.data as any[]).map((row, i) => (
-                  <li key={i} className="px-6 py-2.5 flex items-center justify-between gap-2">
-                    <div className="min-w-0">
-                      <p className="text-xs font-medium text-navy-800 truncate">{formatPath(row.path)}</p>
-                      <p className="text-xs text-navy-400">{row.country ?? "Unknown"}</p>
-                    </div>
-                    <p className="text-xs text-navy-400 shrink-0">
-                      {new Date(row.created_at).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="px-6 py-8 text-sm text-navy-400 text-center">No visits yet</p>
-            )}
-          </div>
-        </div>
+          </>
+        )}
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">

@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
@@ -12,6 +13,10 @@ export default function MarketingLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = headers();
+  const country = headersList.get("x-vercel-ip-country") || "";
+  const isChina = country === "CN";
+
   return (
     <>
       <AuthRedirectHandler />
@@ -21,7 +26,7 @@ export default function MarketingLayout({
       <WhatsAppWidget />
       <ScrollToTop />
       <CallbackModal />
-      <GoogleTranslate />
+      <GoogleTranslate isChina={isChina} />
       <CookieBanner />
     </>
   );

@@ -1,8 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { UserPlus } from "lucide-react";
-import { setClientStatus } from "@/lib/actions/clients";
 import InviteClientModal from "@/components/admin/InviteClientModal";
+import ClientStatusButton from "@/components/admin/ClientStatusButton";
 
 export const metadata = { title: "Clients | ACLCS Admin" };
 
@@ -101,25 +101,28 @@ export default async function AdminClientsPage({
                     <td className="px-5 py-3.5">
                       <div className="flex items-center justify-end gap-2">
                         {client.status === "pending" && (
-                          <form action={setClientStatus.bind(null, client.id, "active")}>
-                            <button type="submit" className="text-xs px-3 py-1.5 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors">
-                              Approve
-                            </button>
-                          </form>
+                          <ClientStatusButton
+                            clientId={client.id}
+                            targetStatus="active"
+                            label="Approve"
+                            className="text-xs px-3 py-1.5 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors"
+                          />
                         )}
                         {client.status === "active" && (
-                          <form action={setClientStatus.bind(null, client.id, "suspended")}>
-                            <button type="submit" className="text-xs px-3 py-1.5 bg-red-100 text-red-700 rounded-lg font-semibold hover:bg-red-200 transition-colors">
-                              Suspend
-                            </button>
-                          </form>
+                          <ClientStatusButton
+                            clientId={client.id}
+                            targetStatus="suspended"
+                            label="Suspend"
+                            className="text-xs px-3 py-1.5 bg-red-100 text-red-700 rounded-lg font-semibold hover:bg-red-200 transition-colors"
+                          />
                         )}
                         {client.status === "suspended" && (
-                          <form action={setClientStatus.bind(null, client.id, "active")}>
-                            <button type="submit" className="text-xs px-3 py-1.5 bg-green-100 text-green-700 rounded-lg font-semibold hover:bg-green-200 transition-colors">
-                              Reactivate
-                            </button>
-                          </form>
+                          <ClientStatusButton
+                            clientId={client.id}
+                            targetStatus="active"
+                            label="Reactivate"
+                            className="text-xs px-3 py-1.5 bg-green-100 text-green-700 rounded-lg font-semibold hover:bg-green-200 transition-colors"
+                          />
                         )}
                         <Link
                           href={`/admin/clients/${client.id}`}

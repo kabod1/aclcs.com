@@ -70,14 +70,14 @@ export const NATIONALITIES = [
   "Belgian", "Brazilian", "British", "Bulgarian", "Cameroonian", "Canadian", "Chilean",
   "Chinese", "Colombian", "Croatian", "Cypriot", "Czech", "Danish", "Dutch", "Egyptian",
   "Ethiopian", "Filipino", "Finnish", "French", "Georgian", "German", "Ghanaian",
-  "Greek", "Hungarian", "Indian", "Indonesian", "Iranian", "Iraqi", "Irish", "Israeli",
+  "Greek", "Hungarian", "Indian", "Indonesian", "Irish", "Israeli",
   "Italian", "Japanese", "Jordanian", "Kazakh", "Kenyan", "Korean", "Kuwaiti",
   "Lebanese", "Libyan", "Malaysian", "Mexican", "Moroccan", "Nepalese", "New Zealander",
   "Nigerian", "Norwegian", "Pakistani", "Palestinian", "Peruvian", "Polish",
   "Portuguese", "Romanian", "Russian", "Saudi", "Serbian", "Singaporean",
   "Somali", "South African", "Spanish", "Sri Lankan", "Sudanese", "Swedish", "Swiss",
   "Syrian", "Taiwanese", "Thai", "Tunisian", "Turkish", "Ukrainian", "Uzbek",
-  "Venezuelan", "Vietnamese", "Yemeni", "Zambian", "Zimbabwean",
+  "Vietnamese", "Zambian", "Zimbabwean",
 ];
 
 export function formatPrice(amount: number): string {

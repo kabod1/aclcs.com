@@ -7,6 +7,7 @@ import CallbackModal from "@/components/forms/CallbackModal";
 import GoogleTranslate from "@/components/ui/GoogleTranslate";
 import CookieBanner from "@/components/ui/CookieBanner";
 import AuthRedirectHandler from "@/components/ui/AuthRedirectHandler";
+import AnalyticsTracker from "@/components/ui/AnalyticsTracker";
 
 export default function MarketingLayout({
   children,
@@ -28,6 +29,7 @@ export default function MarketingLayout({
       <CallbackModal />
       <GoogleTranslate isChina={isChina} />
       <CookieBanner />
+      <AnalyticsTracker />
     </>
   );
 }

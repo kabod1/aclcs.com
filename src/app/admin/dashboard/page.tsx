@@ -47,6 +47,7 @@ export default async function AdminDashboardPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let recentVisits: any[] = [];
   let analyticsError = false;
+  let analyticsErrorMsg = "";
 
   try {
     const admin = createAdminClient();
@@ -61,6 +62,7 @@ export default async function AdminDashboardPage() {
 
     if (pvToday.error || pvWeek.error || pvMonth.error) {
       analyticsError = true;
+      analyticsErrorMsg = JSON.stringify(pvToday.error || pvWeek.error || pvMonth.error);
     } else {
       pvTodayCount = pvToday.count ?? 0;
       pvWeekCount = pvWeek.count ?? 0;
@@ -80,8 +82,9 @@ export default async function AdminDashboardPage() {
 
       recentVisits = (pvRecent.data ?? []) as any[];
     }
-  } catch {
+  } catch (e) {
     analyticsError = true;
+    analyticsErrorMsg = e instanceof Error ? e.message : String(e);
   }
 
   const stats = [
@@ -123,7 +126,7 @@ export default async function AdminDashboardPage() {
 
         {analyticsError ? (
           <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 text-sm text-amber-700">
-            Analytics unavailable — ensure the <code>page_views</code> table exists in Supabase and <code>SUPABASE_SERVICE_ROLE_KEY</code> is set in Vercel.
+            Analytics error: {analyticsErrorMsg || "unknown"}
           </div>
         ) : (
           <>

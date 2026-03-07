@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { Users, FolderOpen, Clock, CheckCircle } from "lucide-react";
 import Link from "next/link";
-import { setClientStatus } from "@/lib/actions/clients";
+import ClientStatusButton from "@/components/admin/ClientStatusButton";
 
 export const metadata = { title: "Admin Dashboard | ACLCS" };
 
@@ -79,14 +79,12 @@ export default async function AdminDashboardPage() {
                       <p className="text-xs text-navy-400 truncate">{client.email}</p>
                     </div>
                   </div>
-                  <form action={setClientStatus.bind(null, client.id, "active")}>
-                    <button
-                      type="submit"
-                      className="text-xs px-3 py-1.5 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors shrink-0"
-                    >
-                      Approve
-                    </button>
-                  </form>
+                  <ClientStatusButton
+                    clientId={client.id}
+                    targetStatus="active"
+                    label="Approve"
+                    className="text-xs px-3 py-1.5 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors shrink-0"
+                  />
                 </li>
               ))}
             </ul>

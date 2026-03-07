@@ -2,7 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { setClientStatus } from "@/lib/actions/clients";
+import ClientStatusButton from "@/components/admin/ClientStatusButton";
 
 const STATUS_BADGE: Record<string, string> = {
   active: "bg-green-100 text-green-700",
@@ -72,18 +72,20 @@ export default async function AdminClientDetailPage({
           {/* Status actions */}
           <div className="pt-3 border-t border-navy-100 space-y-2">
             {client.status !== "active" && (
-              <form action={setClientStatus.bind(null, client.id, "active")}>
-                <button type="submit" className="w-full text-sm px-4 py-2 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition-colors">
-                  Activate Account
-                </button>
-              </form>
+              <ClientStatusButton
+                clientId={client.id}
+                targetStatus="active"
+                label="Activate Account"
+                className="w-full text-sm px-4 py-2 bg-green-500 text-white rounded-xl font-semibold hover:bg-green-600 transition-colors"
+              />
             )}
             {client.status !== "suspended" && (
-              <form action={setClientStatus.bind(null, client.id, "suspended")}>
-                <button type="submit" className="w-full text-sm px-4 py-2 bg-red-100 text-red-700 rounded-xl font-semibold hover:bg-red-200 transition-colors">
-                  Suspend Account
-                </button>
-              </form>
+              <ClientStatusButton
+                clientId={client.id}
+                targetStatus="suspended"
+                label="Suspend Account"
+                className="w-full text-sm px-4 py-2 bg-red-100 text-red-700 rounded-xl font-semibold hover:bg-red-200 transition-colors"
+              />
             )}
           </div>
         </div>

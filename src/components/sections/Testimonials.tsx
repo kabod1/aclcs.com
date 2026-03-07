@@ -12,11 +12,11 @@ const TESTIMONIALS = [
     nationality: "German",
   },
   {
-    name: "Sarah Williams",
-    role: "CEO, Williams Consulting Ltd",
-    text: "The team's knowledge of Cyprus corporate regulations saved me thousands. They identified the best structure for my consultancy and handled everything end-to-end. Highly recommend.",
+    name: "Nnamdi Kabod Chukwunwike",
+    role: "CEO, Townshub Limited",
+    text: "A Lazarou Law Firm handled my company registration in Cyprus seamlessly. They also set up my corporate bank account and secured my VAT registration without any hassle. Exceptional service from start to finish — truly a one-stop shop for everything you need as a business owner in Cyprus.",
     rating: 5,
-    nationality: "British",
+    nationality: "Nigerian",
   },
   {
     name: "Dimitris Papadopoulos",

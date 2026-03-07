@@ -19,7 +19,7 @@ declare global {
 const SUPPORTED_LANGS = [
   "en", "el", "ru", "de", "zh-CN", "zh-TW", "ja", "ko", "hi", "th",
   "vi", "id", "ms", "tl", "bn", "ur", "ta", "my", "km", "lo",
-  "ne", "si", "mn", "kk", "uz",
+  "ne", "si", "mn", "kk", "uz", "ar", "fr", "es", "pt", "tr",
 ];
 
 export function changeLanguage(langCode: string) {
@@ -30,11 +30,41 @@ export function changeLanguage(langCode: string) {
     select.value = langCode;
     select.dispatchEvent(new Event("change"));
     localStorage.setItem("preferredLang", langCode);
+    return true;
   }
+  return false;
 }
 
 export function getCurrentLanguage(): string {
   return localStorage.getItem("preferredLang") || "en";
+}
+
+function detectBrowserLang(): string | null {
+  const browserLang = navigator.language || "";
+  const langCode = browserLang.toLowerCase();
+
+  // Try exact match first (e.g. zh-cn, zh-tw)
+  const exact = SUPPORTED_LANGS.find(
+    (l) => l.toLowerCase() === langCode
+  );
+  if (exact && exact !== "en") return exact;
+
+  // Try prefix match (e.g. "ja" from "ja-JP", "zh" from "zh-Hans-CN")
+  const prefix = langCode.split("-")[0];
+  const match = SUPPORTED_LANGS.find(
+    (l) => l.toLowerCase() === prefix || l.toLowerCase().startsWith(prefix + "-")
+  );
+  if (match && match !== "en") return match;
+
+  return null;
+}
+
+function applyLanguageWhenReady(langCode: string, attempts = 0) {
+  if (attempts > 30) return; // give up after ~6 seconds
+  const success = changeLanguage(langCode);
+  if (!success) {
+    setTimeout(() => applyLanguageWhenReady(langCode, attempts + 1), 200);
+  }
 }
 
 export default function GoogleTranslate() {
@@ -53,34 +83,16 @@ export default function GoogleTranslate() {
         "google_translate_element"
       );
 
-      // Auto-detect browser language after a short delay for the widget to initialize
-      setTimeout(() => {
-        const saved = localStorage.getItem("preferredLang");
-        if (saved && saved !== "en") {
-          changeLanguage(saved);
-        } else if (!saved) {
-          const browserLang = navigator.language || "";
-          const langCode = browserLang.toLowerCase();
-
-          // Try exact match first (e.g. zh-cn, zh-tw)
-          const exact = SUPPORTED_LANGS.find(
-            (l) => l.toLowerCase() === langCode
-          );
-          if (exact && exact !== "en") {
-            changeLanguage(exact);
-            return;
-          }
-
-          // Try prefix match (e.g. "ja" from "ja-JP")
-          const prefix = langCode.split("-")[0];
-          const match = SUPPORTED_LANGS.find(
-            (l) => l.toLowerCase() === prefix || l.toLowerCase().startsWith(prefix + "-")
-          );
-          if (match && match !== "en") {
-            changeLanguage(match);
-          }
+      // After widget initializes, apply language
+      const saved = localStorage.getItem("preferredLang");
+      if (saved && saved !== "en") {
+        applyLanguageWhenReady(saved);
+      } else if (!saved) {
+        const detected = detectBrowserLang();
+        if (detected) {
+          applyLanguageWhenReady(detected);
         }
-      }, 1500);
+      }
     };
 
     const script = document.createElement("script");

@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import PortalSidebar from "@/components/portal/PortalSidebar";
+import GoogleTranslate from "@/components/ui/GoogleTranslate";
 
 export default async function PortalLayout({
   children,
@@ -25,6 +26,7 @@ export default async function PortalLayout({
 
   return (
     <div className="flex flex-col lg:flex-row min-h-screen bg-navy-50">
+      <GoogleTranslate />
       <PortalSidebar fullName={profile.full_name ?? ""} email={profile.email ?? ""} />
       <main className="flex-1 overflow-auto">
         <div className="p-4 lg:p-8">{children}</div>

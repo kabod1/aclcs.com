@@ -1,1 +1,0 @@
-{"query":"SELECT split_part(decrypted_secret, ':', 1) as key_prefix FROM vault.decrypted_secrets LIMIT 1;"}

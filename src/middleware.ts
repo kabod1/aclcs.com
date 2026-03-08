@@ -1,8 +1,22 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
+const BLOCKED_COUNTRIES = ["US", "DE"];
+
 export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
+
+  // Geo-block: deny access from restricted countries
+  const country = request.headers.get("x-vercel-ip-country") ?? "";
+  if (country && BLOCKED_COUNTRIES.includes(country)) {
+    return new NextResponse(
+      `<!DOCTYPE html><html><head><title>Access Restricted</title><meta charset="utf-8">
+      <style>body{font-family:sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#0a1628;color:#fff}
+      .box{text-align:center;padding:2rem}h1{font-size:1.5rem;margin-bottom:.5rem}p{color:#94a3b8}</style></head>
+      <body><div class="box"><h1>Access Restricted</h1><p>This service is not available in your region.</p></div></body></html>`,
+      { status: 403, headers: { "content-type": "text/html" } }
+    );
+  }
 
   // Run auth-redirect checks BEFORE Supabase session call so they are never
   // swallowed by the catch block if Supabase is slow or unreachable.

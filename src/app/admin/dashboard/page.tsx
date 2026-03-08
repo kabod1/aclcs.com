@@ -47,12 +47,8 @@ export default async function AdminDashboardPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let recentVisits: any[] = [];
   let analyticsError = false;
-  let analyticsDebug = "";
 
   try {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
-    const key = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
-    analyticsDebug = `url=${url.length}chars key=${key.length}chars`;
     const admin = createAdminClient();
     const [pvToday, pvWeek, pvMonth, pvTopPages, pvCountries, pvRecent] = await Promise.all([
       admin.from("page_views").select("*", { count: "exact", head: true }).gte("created_at", todayStart),
@@ -65,7 +61,6 @@ export default async function AdminDashboardPage() {
 
     if (pvToday.error || pvWeek.error || pvMonth.error) {
       analyticsError = true;
-      analyticsDebug += ` err=${JSON.stringify(pvToday.error || pvWeek.error || pvMonth.error)}`;
     } else {
       pvTodayCount = pvToday.count ?? 0;
       pvWeekCount = pvWeek.count ?? 0;
@@ -85,9 +80,8 @@ export default async function AdminDashboardPage() {
 
       recentVisits = (pvRecent.data ?? []) as any[];
     }
-  } catch (e) {
+  } catch {
     analyticsError = true;
-    analyticsDebug += ` catch=${e instanceof Error ? e.message : String(e)}`;
   }
 
   const stats = [
@@ -128,8 +122,8 @@ export default async function AdminDashboardPage() {
         </h2>
 
         {analyticsError ? (
-          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 text-sm text-amber-700 break-all">
-            {analyticsDebug}
+          <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 text-sm text-amber-700">
+            Analytics unavailable
           </div>
         ) : (
           <>

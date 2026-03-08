@@ -46,6 +46,10 @@ export default async function AdminDashboardPage() {
   let topCountries: [string, number][] = [];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let recentVisits: any[] = [];
+  const keyDebug = process.env.SUPABASE_SERVICE_ROLE_KEY
+    ? `SET (${process.env.SUPABASE_SERVICE_ROLE_KEY.length} chars)`
+    : "UNDEFINED/EMPTY";
+
   let analyticsError = false;
   let analyticsErrorMsg = "";
 
@@ -126,7 +130,7 @@ export default async function AdminDashboardPage() {
 
         {analyticsError ? (
           <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 text-sm text-amber-700">
-            Analytics error: {analyticsErrorMsg || "unknown"}
+            Analytics error: {analyticsErrorMsg || "unknown"} | Key: {keyDebug}
           </div>
         ) : (
           <>

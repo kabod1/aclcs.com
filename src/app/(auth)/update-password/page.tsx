@@ -1,13 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Lock, Eye, EyeOff, ShieldCheck } from "lucide-react";
 import { updatePassword } from "@/lib/actions/auth";
+import { createClient } from "@/lib/supabase/client";
 
 export default function UpdatePasswordPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [sessionReady, setSessionReady] = useState(false);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.includes("access_token")) {
+      const params = new URLSearchParams(hash.substring(1));
+      const accessToken = params.get("access_token");
+      const refreshToken = params.get("refresh_token");
+      if (accessToken && refreshToken) {
+        const supabase = createClient();
+        supabase.auth.setSession({ access_token: accessToken, refresh_token: refreshToken })
+          .then(({ error: e }) => {
+            if (e) {
+              setError("Invite link expired. Please request a new invite.");
+            } else {
+              window.history.replaceState(null, "", window.location.pathname);
+              setSessionReady(true);
+            }
+          });
+      }
+    } else {
+      setSessionReady(true);
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,6 +56,17 @@ export default function UpdatePasswordPage() {
       setError(result.error);
       setLoading(false);
     }
+  }
+
+  if (!sessionReady && !error) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <svg className="animate-spin h-6 w-6 text-brand-500" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+        </svg>
+      </div>
+    );
   }
 
   return (

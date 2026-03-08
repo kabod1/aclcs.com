@@ -46,12 +46,7 @@ export default async function AdminDashboardPage() {
   let topCountries: [string, number][] = [];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let recentVisits: any[] = [];
-  const keyDebug = process.env.SUPABASE_SERVICE_ROLE_KEY
-    ? `SET (${process.env.SUPABASE_SERVICE_ROLE_KEY.length} chars)`
-    : "UNDEFINED/EMPTY";
-
   let analyticsError = false;
-  let analyticsErrorMsg = "";
 
   try {
     const admin = createAdminClient();
@@ -66,7 +61,6 @@ export default async function AdminDashboardPage() {
 
     if (pvToday.error || pvWeek.error || pvMonth.error) {
       analyticsError = true;
-      analyticsErrorMsg = JSON.stringify(pvToday.error || pvWeek.error || pvMonth.error);
     } else {
       pvTodayCount = pvToday.count ?? 0;
       pvWeekCount = pvWeek.count ?? 0;
@@ -86,9 +80,8 @@ export default async function AdminDashboardPage() {
 
       recentVisits = (pvRecent.data ?? []) as any[];
     }
-  } catch (e) {
+  } catch {
     analyticsError = true;
-    analyticsErrorMsg = e instanceof Error ? e.message : String(e);
   }
 
   const stats = [
@@ -130,7 +123,7 @@ export default async function AdminDashboardPage() {
 
         {analyticsError ? (
           <div className="bg-amber-50 border border-amber-200 rounded-2xl px-6 py-4 text-sm text-amber-700">
-            Analytics error: {analyticsErrorMsg || "unknown"} | Key: {keyDebug}
+            Analytics unavailable
           </div>
         ) : (
           <>

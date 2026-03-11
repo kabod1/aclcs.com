@@ -1,5 +1,13 @@
 import { createServerClient } from "@supabase/ssr";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
 import { NextResponse, type NextRequest } from "next/server";
+
+function createAdminClient() {
+  return createSupabaseClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 const BLOCKED_COUNTRIES = ["US", "DE"];
 
@@ -64,10 +72,12 @@ export async function middleware(request: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
 
+    const admin = createAdminClient();
+
     // If the user is logged in and tries to access auth pages, redirect them
     if (user && (pathname === "/login" || pathname === "/register" || pathname === "/reset-password")) {
       // Need to know their role to redirect correctly
-      const { data: profile } = await supabase
+      const { data: profile } = await admin
         .from("profiles")
         .select("role, status")
         .eq("id", user.id)
@@ -89,7 +99,7 @@ export async function middleware(request: NextRequest) {
 
     // If logged in on protected routes, check status and role
     if (user && (pathname.startsWith("/portal") || pathname.startsWith("/admin"))) {
-      const { data: profile } = await supabase
+      const { data: profile } = await admin
         .from("profiles")
         .select("role, status")
         .eq("id", user.id)

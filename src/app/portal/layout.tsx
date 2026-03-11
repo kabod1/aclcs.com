@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 import PortalSidebar from "@/components/portal/PortalSidebar";
 import GoogleTranslate from "@/components/ui/GoogleTranslate";
 
@@ -14,7 +14,8 @@ export default async function PortalLayout({
 
   if (!user) redirect("/login");
 
-  const { data: profile } = await supabase
+  const admin = createAdminClient();
+  const { data: profile } = await admin
     .from("profiles")
     .select("role, status, full_name, email")
     .eq("id", user.id)

@@ -76,7 +76,10 @@ export async function middleware(request: NextRequest) {
       if (profile?.role === "admin") {
         return NextResponse.redirect(new URL("/admin/dashboard", request.url));
       }
-      return NextResponse.redirect(new URL("/portal/dashboard", request.url));
+      if (profile) {
+        return NextResponse.redirect(new URL("/portal/dashboard", request.url));
+      }
+      // No profile found — don't redirect, let them stay on the auth page
     }
 
     // Protected routes — must be logged in
@@ -93,7 +96,9 @@ export async function middleware(request: NextRequest) {
         .single();
 
       if (!profile) {
-        return NextResponse.redirect(new URL("/login", request.url));
+        // Sign out to avoid redirect loop (logged in but no profile)
+        await supabase.auth.signOut();
+        return NextResponse.redirect(new URL("/login?error=no_profile", request.url));
       }
 
       // Pending approval

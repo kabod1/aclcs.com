@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { NAV_ITEMS, PHONE, PHONE_LINK, EMAIL_LINK, WHATSAPP_LINK } from "@/lib/utils";
 import { changeLanguage, getCurrentLanguage } from "@/components/ui/GoogleTranslate";
 import {
@@ -136,18 +137,15 @@ export default function Navbar() {
       >
         <div className="container-wide flex items-center justify-between h-[72px] px-4 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-brand-500/20">
-              A
-            </div>
-            <div className="leading-tight">
-              <span className="text-xl font-bold text-navy-900 tracking-tight">
-                ACLCS
-              </span>
-              <p className="text-[10px] text-navy-400 font-medium -mt-0.5 tracking-wider uppercase">
-                Corporate Services
-              </p>
-            </div>
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/images/20260304_191210.png"
+              alt="ACLCS – A&C Lazarou Corporate Services Limited"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop links */}

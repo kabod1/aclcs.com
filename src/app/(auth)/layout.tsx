@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AuthLayout({
   children,
@@ -8,13 +9,15 @@ export default function AuthLayout({
   return (
     <div className="min-h-screen bg-navy-950 flex flex-col items-center justify-center p-4">
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-3 mb-8">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white font-bold text-lg">
-          A
-        </div>
-        <span className="text-xl font-bold text-white">
-          ACLCS<span className="text-brand-400"> Corporate</span>
-        </span>
+      <Link href="/" className="flex items-center mb-8">
+        <Image
+          src="/images/20260305_055231.png"
+          alt="ACLCS – A&C Lazarou Corporate Services Limited"
+          width={280}
+          height={84}
+          className="h-20 w-auto"
+          priority
+        />
       </Link>
 
       {/* Card */}

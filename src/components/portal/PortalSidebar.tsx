@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -39,9 +40,13 @@ export default function PortalSidebar({
       {/* Mobile top bar */}
       <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-navy-900 border-b border-white/10">
         <Link href="/portal/dashboard" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-white font-bold text-sm">
-            A
-          </div>
+          <Image
+            src="/images/20260304_191137.png"
+            alt="ACLCS"
+            width={32}
+            height={32}
+            className="w-8 h-8 rounded-lg"
+          />
           <span className="text-sm font-bold text-white">Client Portal</span>
         </Link>
         <button onClick={() => setOpen((o) => !o)} className="text-white/60 hover:text-white">
@@ -55,14 +60,14 @@ export default function PortalSidebar({
         } lg:flex flex-col w-full lg:w-60 bg-navy-900 border-r border-white/10 lg:min-h-screen`}
       >
         {/* Logo */}
-        <div className="hidden lg:flex items-center gap-3 px-6 py-5 border-b border-white/10">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white font-bold">
-            A
-          </div>
-          <div>
-            <p className="text-sm font-bold text-white">ACLCS Portal</p>
-            <p className="text-xs text-white/40">Client Dashboard</p>
-          </div>
+        <div className="hidden lg:flex items-center gap-3 px-4 py-4 border-b border-white/10">
+          <Image
+            src="/images/20260305_055231.png"
+            alt="ACLCS – A&C Lazarou Corporate Services Limited"
+            width={180}
+            height={54}
+            className="h-12 w-auto"
+          />
         </div>
 
         {/* User info */}

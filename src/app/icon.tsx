@@ -20,13 +20,15 @@ export default function Icon() {
       >
         <span
           style={{
-            color: "#F4B90A",
-            fontSize: "22px",
-            fontWeight: "bold",
+            color: "#29ABE2",
+            fontSize: "20px",
+            fontWeight: "900",
             lineHeight: 1,
+            fontFamily: "serif",
+            letterSpacing: "-1px",
           }}
         >
-          A
+          AC
         </span>
       </div>
     ),

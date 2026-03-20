@@ -43,21 +43,36 @@ export async function signUp(formData: FormData) {
     const phone = formData.get("phone") as string;
     const nationality = formData.get("nationality") as string;
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: {
-          full_name: fullName,
-          phone,
-          nationality,
-        },
+        data: { full_name: fullName, phone, nationality },
         emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/api/auth/confirm`,
       },
     });
 
-    if (error) {
-      return { error: error.message };
+    if (error) return { error: error.message };
+    if (!data.user) return { error: "Registration failed. Please try again." };
+
+    // Create the profile row immediately using the admin client so the
+    // user can log in after confirming their email (or immediately if
+    // email confirmation is disabled).
+    const admin = createAdminClient();
+    const { error: profileError } = await admin.from("profiles").insert({
+      id: data.user.id,
+      email,
+      full_name: fullName,
+      phone: phone || null,
+      nationality: nationality || null,
+      role: "client",
+      status: "pending",
+    });
+
+    if (profileError) {
+      // If profile creation fails, clean up the auth user and return error
+      await admin.auth.admin.deleteUser(data.user.id);
+      return { error: "Account creation failed. Please try again." };
     }
 
     return { redirectTo: "/pending-approval" };

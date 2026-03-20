@@ -86,6 +86,12 @@ export async function middleware(request: NextRequest) {
       if (profile?.role === "admin") {
         return NextResponse.redirect(new URL("/admin/dashboard", request.url));
       }
+      if (profile?.status === "pending") {
+        return NextResponse.redirect(new URL("/pending-approval", request.url));
+      }
+      if (profile?.status === "suspended") {
+        return NextResponse.redirect(new URL("/suspended", request.url));
+      }
       if (profile) {
         return NextResponse.redirect(new URL("/portal/dashboard", request.url));
       }

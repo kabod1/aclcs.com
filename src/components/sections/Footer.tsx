@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -58,15 +59,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center text-white font-bold text-lg">
-                A
-              </div>
-              <div>
-                <span className="text-xl font-bold">
-                  ACLCS<span className="text-brand-400"> Corporate</span>
-                </span>
-              </div>
+            <Link href="/" className="flex items-center mb-5">
+              <Image
+                src="/images/20260305_055231.png"
+                alt="ACLCS – A&C Lazarou Corporate Services Limited"
+                width={220}
+                height={66}
+                className="h-14 w-auto"
+              />
             </Link>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs">
               Leading Cyprus company formation, corporate services and residency

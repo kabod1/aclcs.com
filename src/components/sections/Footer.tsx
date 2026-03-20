@@ -63,12 +63,12 @@ export default function Footer() {
               <Image
                 src="/images/20260305_055231.png"
                 alt="ACLCS – A&C Lazarou Corporate Services Limited"
-                width={220}
-                height={66}
-                className="h-14 w-auto"
+                width={260}
+                height={78}
+                className="h-20 w-auto"
               />
             </Link>
-            <p className="text-sm text-white/40 leading-relaxed max-w-xs">
+            <p className="text-sm text-white/70 leading-relaxed max-w-xs font-medium">
               Leading Cyprus company formation, corporate services and residency
               specialist. Licensed and regulated.
             </p>
@@ -77,29 +77,29 @@ export default function Footer() {
             <div className="mt-6 space-y-3">
               <a
                 href={PHONE_LINK}
-                className="flex items-center gap-3 text-sm text-white/50 hover:text-brand-400 transition-colors"
+                className="flex items-center gap-3 text-sm text-white/80 hover:text-brand-400 transition-colors font-medium"
               >
-                <Phone size={14} className="shrink-0" />
+                <Phone size={14} className="shrink-0 text-brand-400" />
                 {PHONE}
               </a>
               <a
                 href={EMAIL_LINK}
-                className="flex items-center gap-3 text-sm text-white/50 hover:text-brand-400 transition-colors"
+                className="flex items-center gap-3 text-sm text-white/80 hover:text-brand-400 transition-colors font-medium"
               >
-                <Mail size={14} className="shrink-0" />
+                <Mail size={14} className="shrink-0 text-brand-400" />
                 {EMAIL}
               </a>
               <a
                 href={MAPS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 text-sm text-white/50 hover:text-brand-400 transition-colors"
+                className="flex items-start gap-3 text-sm text-white/80 hover:text-brand-400 transition-colors font-medium"
               >
-                <MapPin size={14} className="shrink-0 mt-0.5" />
+                <MapPin size={14} className="shrink-0 mt-0.5 text-brand-400" />
                 <span>{ADDRESS}</span>
               </a>
-              <div className="flex items-center gap-3 text-sm text-white/50">
-                <Clock size={14} className="shrink-0" />
+              <div className="flex items-center gap-3 text-sm text-white/80 font-medium">
+                <Clock size={14} className="shrink-0 text-brand-400" />
                 Mon - Fri, 9:00am - 6:00pm
               </div>
             </div>
@@ -139,13 +139,13 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
             <div key={heading}>
-              <h4 className="text-sm font-bold text-white mb-4">{heading}</h4>
+              <h4 className="text-sm font-extrabold text-white mb-4 tracking-wide uppercase">{heading}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/40 hover:text-brand-400 transition-colors"
+                      className="text-sm text-white/70 hover:text-brand-400 transition-colors font-medium"
                     >
                       {link.label}
                     </Link>
@@ -160,7 +160,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="container-wide px-4 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-white/60 font-medium">
             &copy; {new Date().getFullYear()} ACLCS Corporate Services. All rights reserved.
           </p>
           <p className="text-sm font-semibold text-white">
@@ -175,7 +175,7 @@ export default function Footer() {
             </a>
           </p>
           <div className="flex items-center gap-4">
-            <span className="text-xs text-white/20">We accept:</span>
+            <span className="text-xs text-white/60 font-medium">We accept:</span>
             <div className="flex items-center gap-2">
               {["Visa", "MC", "Amex"].map((card) => (
                 <div

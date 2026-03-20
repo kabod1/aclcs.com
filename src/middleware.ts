@@ -117,13 +117,13 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL("/login?error=no_profile", request.url));
       }
 
-      // Pending approval
-      if (profile.status === "pending" && pathname !== "/pending-approval") {
+      // Legacy pending (admin-invited users not yet activated)
+      if (profile.status === "pending") {
         return NextResponse.redirect(new URL("/pending-approval", request.url));
       }
 
       // Suspended
-      if (profile.status === "suspended" && pathname !== "/suspended") {
+      if (profile.status === "suspended") {
         return NextResponse.redirect(new URL("/suspended", request.url));
       }
 

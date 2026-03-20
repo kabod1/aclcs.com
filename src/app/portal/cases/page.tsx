@@ -1,6 +1,7 @@
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { FolderOpen } from "lucide-react";
+import VerificationGate from "@/components/portal/VerificationGate";
 
 export const metadata = { title: "My Cases | ACLCS Client Portal" };
 
@@ -25,6 +26,10 @@ const STATUS_STEPS = [
 export default async function PortalCasesPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+
+  const admin = createAdminClient();
+  const { data: profile } = await admin.from("profiles").select("status").eq("id", user!.id).single();
+  if (profile?.status !== "verified") return <VerificationGate feature="case management" />;
 
   const { data: cases } = await supabase
     .from("cases")

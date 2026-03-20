@@ -75,7 +75,7 @@ export async function signUp(formData: FormData) {
       return { error: "Account creation failed. Please try again." };
     }
 
-    return { redirectTo: "/pending-approval" };
+    return { redirectTo: "/portal/dashboard" };
   } catch (e) {
     return { error: e instanceof Error ? e.message : "Registration failed. Please try again." };
   }

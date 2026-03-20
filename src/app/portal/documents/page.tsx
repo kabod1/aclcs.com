@@ -1,7 +1,8 @@
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 import DocumentUploadZone from "@/components/portal/DocumentUploadZone";
 import { deleteDocument } from "@/lib/actions/documents";
 import { FileText, Download, Trash2 } from "lucide-react";
+import VerificationGate from "@/components/portal/VerificationGate";
 
 export const metadata = { title: "Documents | ACLCS Client Portal" };
 
@@ -14,6 +15,10 @@ const CATEGORY_BADGE: Record<string, string> = {
 export default async function PortalDocumentsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+
+  const admin = createAdminClient();
+  const { data: profile } = await admin.from("profiles").select("status").eq("id", user!.id).single();
+  if (profile?.status !== "verified") return <VerificationGate feature="document management" />;
 
   const [{ data: cases }, { data: allDocs }] = await Promise.all([
     supabase

@@ -1,6 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { FolderOpen, FileText, ArrowRight, AlertCircle } from "lucide-react";
+import VerificationBanner from "@/components/portal/VerificationBanner";
 
 export const metadata = { title: "Dashboard | ACLCS Client Portal" };
 
@@ -16,6 +18,15 @@ const STATUS_BADGE: Record<string, string> = {
 export default async function PortalDashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+
+  const admin = createAdminClient();
+  const { data: profile } = await admin
+    .from("profiles")
+    .select("status")
+    .eq("id", user!.id)
+    .single();
+
+  const isVerified = profile?.status === "verified";
 
   const [{ data: cases }, { data: recentDocs }] = await Promise.all([
     supabase
@@ -40,6 +51,9 @@ export default async function PortalDashboardPage() {
         <h1 className="text-2xl font-bold text-navy-900">My Dashboard</h1>
         <p className="text-sm text-navy-500 mt-1">Track your company formation progress</p>
       </div>
+
+      {/* Verification banner */}
+      {!isVerified && <VerificationBanner />}
 
       {/* Action required banner */}
       {actionRequired.length > 0 && (

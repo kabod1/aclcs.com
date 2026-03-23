@@ -138,9 +138,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <img
-              src="/images/logo-ac-navbar.png"
+              src="/images/logo-navs_bar.png.jpeg"
               alt="ACLCS – A&C Lazarou Corporate Services Limited"
-              style={{height: 56, width: 'auto'}}
+              style={{height: 56, width: 56, borderRadius: 10}}
             />
           </Link>
 

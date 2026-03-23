@@ -41,7 +41,7 @@ export default function PortalSidebar({
       <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-navy-900 border-b border-white/10">
         <Link href="/portal/dashboard" className="flex items-center gap-2">
           <Image
-            src="/images/20260304_191137.png"
+            src="/images/logo-light.png.png"
             alt="ACLCS"
             width={32}
             height={32}
@@ -62,7 +62,7 @@ export default function PortalSidebar({
         {/* Logo */}
         <div className="hidden lg:flex items-center gap-3 px-4 py-4 border-b border-white/10">
           <Image
-            src="/images/20260305_055231.png"
+            src="/images/logo-lights.png.png"
             alt="ACLCS – A&C Lazarou Corporate Services Limited"
             width={180}
             height={54}

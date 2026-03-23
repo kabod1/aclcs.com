@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="col-span-2">
             <Link href="/" className="flex items-center mb-5">
               <Image
-                src="/images/20260305_055231.png"
+                src="/images/logo-lights.png.png"
                 alt="ACLCS – A&C Lazarou Corporate Services Limited"
                 width={260}
                 height={78}

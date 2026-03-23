@@ -66,7 +66,7 @@ export async function signUp(formData: FormData) {
       phone: phone || null,
       nationality: nationality || null,
       role: "client",
-      status: "pending",
+      status: "active",
     });
 
     if (profileError) {

@@ -136,15 +136,13 @@ export default function Navbar() {
       >
         <div className="container-wide flex items-center justify-between h-[72px] px-4 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#1a3a6b] to-[#29ABE2] flex items-center justify-center text-white font-black text-base font-serif leading-none">
-              AC
-            </div>
-            <div className="leading-tight">
-              <span className="text-lg font-bold text-navy-900 tracking-tight">ACLCS</span>
-              <p className="text-[9px] text-navy-400 font-medium tracking-widest uppercase -mt-0.5">
-                Corporate Services
-              </p>
+          <Link href="/" className="flex items-center shrink-0">
+            <div className="h-10 rounded-xl overflow-hidden bg-[#050d1a]">
+              <img
+                src="/images/20260305_055231.png"
+                alt="ACLCS – A&C Lazarou Corporate Services Limited"
+                className="h-10 w-auto"
+              />
             </div>
           </Link>
 

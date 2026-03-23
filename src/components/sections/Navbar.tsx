@@ -136,18 +136,12 @@ export default function Navbar() {
       >
         <div className="container-wide flex items-center justify-between h-[72px] px-4 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="w-10 h-10 rounded-xl overflow-hidden bg-[#050d1a] shrink-0">
-              <img
-                src="/images/logo-dark.png.png"
-                alt="ACLCS"
-                style={{width: 100, height: 100, marginTop: -18, marginLeft: -6, transform: 'scale(1.5)', transformOrigin: '20% 50%'}}
-              />
-            </div>
-            <div className="leading-tight">
-              <span className="text-lg font-bold text-navy-900 tracking-tight">ACLCS</span>
-              <p className="text-[9px] text-navy-400 font-medium tracking-widest uppercase -mt-0.5">Corporate Services</p>
-            </div>
+          <Link href="/" className="flex items-center shrink-0 overflow-hidden" style={{height: 44, width: 160}}>
+            <img
+              src="/images/logo-lights.png.png"
+              alt="ACLCS – A&C Lazarou Corporate Services Limited"
+              style={{width: 220, height: 220, marginTop: -80, marginLeft: -12}}
+            />
           </Link>
 
           {/* Desktop links */}

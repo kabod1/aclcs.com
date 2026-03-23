@@ -136,11 +136,11 @@ export default function Navbar() {
       >
         <div className="container-wide flex items-center justify-between h-[72px] px-4 lg:px-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0 overflow-hidden rounded-sm" style={{height: 56, width: 130}}>
+          <Link href="/" className="flex items-center shrink-0">
             <img
-              src="/images/logo-navbar.png.png"
+              src="/images/logo-ac-navbar.png"
               alt="ACLCS – A&C Lazarou Corporate Services Limited"
-              style={{width: 160, height: 160, marginTop: -53, marginLeft: -20, filter: 'invert(1)'}}
+              style={{height: 56, width: 'auto'}}
             />
           </Link>
 

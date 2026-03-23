@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Mail, Lock, LogIn, Eye, EyeOff } from "lucide-react";
@@ -12,6 +13,7 @@ const URL_ERRORS: Record<string, string> = {
 };
 
 export default function LoginForm() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const urlError = URL_ERRORS[searchParams.get("error") ?? ""] ?? "";
   const [loading, setLoading] = useState(false);
@@ -22,10 +24,17 @@ export default function LoginForm() {
     e.preventDefault();
     setError("");
     setLoading(true);
-    const formData = new FormData(e.currentTarget);
-    const result = await signIn(formData);
-    if (result?.error) {
-      setError(result.error);
+    try {
+      const formData = new FormData(e.currentTarget);
+      const result = await signIn(formData);
+      if (result?.error) {
+        setError(result.error);
+        setLoading(false);
+      } else if (result?.redirectTo) {
+        router.push(result.redirectTo);
+      }
+    } catch {
+      setError("An unexpected error occurred. Please try again.");
       setLoading(false);
     }
   }

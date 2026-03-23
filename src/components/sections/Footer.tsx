@@ -59,11 +59,11 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center mb-5 overflow-hidden" style={{height: 56, width: 130}}>
+            <Link href="/" className="flex items-center mb-5">
               <img
-                src="/images/logo-navbar.png.png"
+                src="/images/logo-navs_bar.png.jpeg"
                 alt="ACLCS – A&C Lazarou Corporate Services Limited"
-                style={{width: 160, height: 160, marginTop: -53, marginLeft: -20}}
+                style={{height: 72, width: 72, borderRadius: 12}}
               />
             </Link>
             <p className="text-sm text-white/70 leading-relaxed max-w-xs font-medium">

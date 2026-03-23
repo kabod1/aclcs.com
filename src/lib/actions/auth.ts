@@ -27,10 +27,10 @@ export async function signIn(formData: FormData) {
     .single();
 
   if (!profile) return { error: "Account setup incomplete. Please contact support." };
-  if (profile.status === "pending") redirect("/pending-approval");
-  if (profile.status === "suspended") redirect("/suspended");
-  if (profile.role === "admin") redirect("/admin/dashboard");
-  redirect("/portal/dashboard");
+  if (profile.status === "pending") return { redirectTo: "/pending-approval" };
+  if (profile.status === "suspended") return { redirectTo: "/suspended" };
+  if (profile.role === "admin") return { redirectTo: "/admin/dashboard" };
+  return { redirectTo: "/portal/dashboard" };
 }
 
 export async function signUp(formData: FormData) {

@@ -137,11 +137,11 @@ export default function Navbar() {
         <div className="container-wide flex items-center justify-between h-[72px] px-4 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
-            <div className="h-10 rounded-xl overflow-hidden bg-[#050d1a]">
+            <div className="rounded-xl overflow-hidden bg-[#050d1a]" style={{width: 120, height: 42}}>
               <img
                 src="/images/20260305_055231.png"
                 alt="ACLCS – A&C Lazarou Corporate Services Limited"
-                className="h-10 w-auto"
+                style={{width: 126, height: 126, marginTop: -44, marginLeft: -4}}
               />
             </div>
           </Link>

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -32,12 +31,10 @@ export default function AdminSidebar() {
       {/* Mobile top bar */}
       <div className="lg:hidden flex items-center justify-between px-4 py-3 bg-navy-900 border-b border-white/10">
         <Link href="/admin/dashboard" className="flex items-center gap-2">
-          <Image
-            src="/images/20260304_191137.png"
+          <img
+            src="/images/logo-navs_bar.png.jpeg"
             alt="ACLCS"
-            width={32}
-            height={32}
-            className="w-8 h-8 rounded-lg"
+            style={{width: 32, height: 32, borderRadius: 6}}
           />
           <span className="text-sm font-bold text-white">Admin Panel</span>
         </Link>
@@ -54,13 +51,12 @@ export default function AdminSidebar() {
       >
         {/* Desktop logo */}
         <div className="hidden lg:flex items-center gap-3 px-4 py-4 border-b border-white/10">
-          <Image
-            src="/images/20260305_055231.png"
+          <img
+            src="/images/logo-navs_bar.png.jpeg"
             alt="ACLCS – A&C Lazarou Corporate Services Limited"
-            width={180}
-            height={54}
-            className="h-12 w-auto"
+            style={{height: 48, width: 48, borderRadius: 8}}
           />
+          <span className="text-sm font-bold text-white">ACLCS Admin</span>
         </div>
 
         {/* Nav */}

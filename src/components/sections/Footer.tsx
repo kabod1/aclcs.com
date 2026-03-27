@@ -46,8 +46,8 @@ const FOOTER_LINKS = {
   Legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms" },
-    { label: "Cookie Policy", href: "/privacy-policy#9-cookies" },
-    { label: "GDPR Rights", href: "/privacy-policy#7-your-gdpr-rights" },
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "GDPR Rights", href: "/gdpr-rights" },
   ],
 };
 

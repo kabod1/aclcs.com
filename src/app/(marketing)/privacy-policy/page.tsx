@@ -165,7 +165,11 @@ export default function PrivacyPolicyPage() {
                 <a href="mailto:admin@aclcs.com" className="text-brand-600 hover:underline">
                   admin@aclcs.com
                 </a>
-                . We will respond within 30 days of receiving your request.
+                . We will respond within 30 days of receiving your request. For full details on each right and how to exercise it, see our dedicated{" "}
+                <Link href="/gdpr-rights" className="text-brand-600 hover:underline">
+                  GDPR Rights page
+                </Link>
+                .
               </p>
             </Section>
 
@@ -200,13 +204,22 @@ export default function PrivacyPolicyPage() {
                   consent="Stored in localStorage — cleared when you clear browser data"
                 />
                 <CookieCategory
+                  name="Analytics Cookies"
+                  description="Help us understand how visitors interact with our website via Google Analytics. All data is anonymised and aggregated."
+                  consent="Consent required — controlled via our cookie banner"
+                />
+                <CookieCategory
                   name="Third-Party Cookies (Google)"
                   description="Google Maps and Google Translate may set cookies when you interact with those features. These are governed by Google's Privacy Policy."
                   consent="Consent required — controlled via our cookie banner"
                 />
               </div>
               <p className="mt-4">
-                You can manage cookie preferences at any time through your browser settings. Note that disabling certain cookies may affect website functionality.
+                You can manage cookie preferences at any time by clicking the cookie settings button on our website, or through your browser settings. For a full list of cookies we use, see our{" "}
+                <Link href="/cookie-policy" className="text-brand-600 hover:underline">
+                  Cookie Policy
+                </Link>
+                .
               </p>
             </Section>
 
@@ -268,7 +281,13 @@ export default function PrivacyPolicyPage() {
               <p className="text-sm text-navy-400">
                 This policy is governed by the laws of the Republic of Cyprus and the GDPR.
               </p>
-              <div className="flex gap-4 text-sm">
+              <div className="flex flex-wrap gap-4 text-sm">
+                <Link href="/cookie-policy" className="text-brand-600 hover:underline">
+                  Cookie Policy
+                </Link>
+                <Link href="/gdpr-rights" className="text-brand-600 hover:underline">
+                  GDPR Rights
+                </Link>
                 <Link href="/terms" className="text-brand-600 hover:underline">
                   Terms &amp; Conditions
                 </Link>

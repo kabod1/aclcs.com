@@ -11,8 +11,23 @@ function createAdminClient() {
 
 const BLOCKED_COUNTRIES = ["US", "DE"];
 
+const MAINTENANCE_HTML = `<!DOCTYPE html><html lang="en"><head><title>Down for Maintenance</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#040D24;color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1rem}.box{text-align:center;max-width:420px}.icon{font-size:3rem;margin-bottom:1.5rem}h1{font-size:1.75rem;font-weight:700;margin-bottom:.75rem}p{color:#94a3b8;line-height:1.6;font-size:1rem}</style>
+</head><body><div class="box"><div class="icon">🔧</div><h1>Down for Maintenance</h1><p>We're making some improvements. We'll be back shortly.</p></div></body></html>`;
+
 export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
+
+  // Maintenance mode — set MAINTENANCE_MODE=true in Vercel env vars to activate
+  if (process.env.MAINTENANCE_MODE === "true") {
+    // Allow internal Next.js assets through
+    if (!pathname.startsWith("/_next") && !pathname.startsWith("/favicon")) {
+      return new NextResponse(MAINTENANCE_HTML, {
+        status: 503,
+        headers: { "content-type": "text/html", "retry-after": "3600" },
+      });
+    }
+  }
 
   // Geo-block: deny access from restricted countries
   const country = request.headers.get("x-vercel-ip-country") ?? "";

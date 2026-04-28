@@ -18,15 +18,12 @@ const MAINTENANCE_HTML = `<!DOCTYPE html><html lang="en"><head><title>Down for M
 export async function middleware(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl;
 
-  // Maintenance mode — set MAINTENANCE_MODE=true in Vercel env vars to activate
-  if (process.env.MAINTENANCE_MODE === "true") {
-    // Allow internal Next.js assets through
-    if (!pathname.startsWith("/_next") && !pathname.startsWith("/favicon")) {
-      return new NextResponse(MAINTENANCE_HTML, {
-        status: 503,
-        headers: { "content-type": "text/html", "retry-after": "3600" },
-      });
-    }
+  // Maintenance mode — hardcoded ON
+  if (!pathname.startsWith("/_next") && !pathname.startsWith("/favicon")) {
+    return new NextResponse(MAINTENANCE_HTML, {
+      status: 503,
+      headers: { "content-type": "text/html", "retry-after": "3600" },
+    });
   }
 
   // Geo-block: deny access from restricted countries
